@@ -1,0 +1,9 @@
+function output(input){
+    let grade = Number(input[0]);
+    
+    if (grade >= 5.50){
+        console.log("Excellent!");
+    } 
+}
+
+output(["5.49"])

@@ -1,0 +1,17 @@
+function solve(input){
+
+
+}
+solve(5)
+
+
+// variable.length -> takes the length of the variable
+// Math.floor(variable) -> rounds the variable to the lower value
+// Math.ceil(variable) -> rounds the variable to the higher value
+// Math.abs(variable) -> returns the absolute value of the variable
+// Math.pow(a, i) -> returns the power of the variable a to the power of the i value
+// Math.round(variable) -> rounds the variable to the nearest value
+// Number(MAX_SAFE_INTEGER) -> returns the maximum possible number in JS
+// Number(MIN_SAFE_INTEGER) -> returns the minimum possible number in JS
+
+

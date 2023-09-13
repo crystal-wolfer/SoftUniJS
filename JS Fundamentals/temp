@@ -1,0 +1,118 @@
+function solve(){
+
+}
+solve(['5', '15', '23', '56', '35'],['17', '22', '87', '36', '11'])
+console.log(`Answer: \n22 - 1522 - 110 - 5636 - 46`);
+console.log(`----------------------------------------------------`);
+solve(['13', '12312', '5', '77', '4'],['22', '333', '5', '122', '44']);
+console.log(`Answer: \n35 - 12312333 - 10 - 77122 - 48`);
+
+
+// variable.length -> takes the length of the variable
+// Math.floor(variable) -> rounds the variable to the lower value
+// Math.ceil(variable) -> rounds the variable to the higher value
+// Math.round(variable) -> rounds the variable to the nearest value
+// Math.abs(variable) -> returns the absolute value of the variable
+// Math.pow(a, i) -> returns the power of the variable a to the power of the i value
+// Math.round(variable) -> rounds the variable to the nearest value
+// Number(MAX_SAFE_INTEGER) -> returns the maximum possible number in JS
+// Number(MIN_SAFE_INTEGER) -> returns the minimum possible number in JS
+// console.log(newArray.join(' ')) -> prints the array as a string with deliminator 'space'
+// array.toReversed(); -> returns the array elements in reversed order
+// nameVariable.charCodeAt() -> returns the ASCII character code
+// String.fromCharCode(nameVariable) -> returns the string value of the character ASCII code
+// +nameString -> returns the string as a number if possible same as Number(string);
+
+//------- Arrays -------
+// let reversedElement = curElementAsString.split('').reverse().join(''); -> quick way to reverse a string: if original string is "abc" reversed string will be "cba"
+// ${`%`.repeat(numberOfRepetitions)}
+// array2.includes(curElement) -> includes is a method that checks if an array contains the current element
+// newArray.push(arrayInput[i]) -> keeps all array elements from arrayInput[i] into newArray;
+// array.pop(); -> removes the last element and returns that removed element. This method changes the length of the array.
+// array.shift() -> The shift() method removes the first element from an array(pos 0) and returns that removed element. This method changes the length of the array.
+// array.unshift() -> The unshift() method adds new elements to the array(pos 0)
+// array.indexOf() -> returns the index of the element you are searching for
+// array.at(-1) -> returns the last element in the array
+// arrayInput.slice(0, k) -> slices the array with starting and ending arguments 0 and k
+// arrayInput.slice(-k) -> slices the array from the end of the array K elements backwards
+// array.splice(startIndex, amountToDelete, newValue, newValue2, newValueN); => removes the given amount from the array and inserts the new values that follow
+// inputArr.sort((a, b) => a - b) -> sorts the array in ascending order
+// inputArr.sort((a, b) => b - a) -> sorts the array in descending order
+// inputArr.sort((a, b) => a.localeCompare(b)) -> sorts the array in alphabetical order
+// inputArr.sort((a, b) => b.localeCompare(a)) -> sorts the array in alphabetical order backwards
+// .map(Number) -> Calls Number on each value in the array (casting it to a number) and returns the array of results. [1,2,3,4] Keep in mind Number(val) attempts to create a Number from what ever is passed to it. If it is a string it'll try to convert the string to a numerical value. 
+// let averageValue = eval(array.join('+'))/array.length; -> returns the avarage value of the array numbers;
+// (e) => console.log(e) = in judge to see the input we receive in the Your output side
+// let avarageValue = inputArray.reduce((x,y) => x+y)/inputArray.length => calculating avarage number for an array of numbers
+// let guestList = vipList.concat(regularList);
+// let combinedArray = [...array1, ...array2] => conbines all array1 entries and all array2 entries into a new array
+// same as above: let combinedArray = array1.concat(array2)
+
+//------- Objects -------
+// Object.keys(objName); Get array of all property names (keys): ['name', 'age']
+// Object.values(objName); Get array with of all property values: ['Tom', 5]
+// Object.entries(objName); Get and array of all properties as key-value tuples: [['name', 'Tom'], ['age', 5]]
+// for in loop applies only to Objects
+// objectName.hasOwnProperty(keyName) => checking if the object has the given key already (same as includes in arrays)
+// let {property1, property2} = object1 => destructuring an object it will return the values of the called properties
+// let combinedObject = {...object1, ...object2} => takes all properties and values from object1 and overwrites the repeating properies with the values from object2
+
+//------- JSON -------
+// let text = JSON.stringify(objectName); convert object into JSON string 
+// let obj = JSON.parse(text); We can convert JSON string into object using JSON.parse(text) method
+
+//------- Classes -------
+// constructor(name, grade) { this.name = name; this.grade = grade;}
+
+//-------- Text operations ----------
+// let char = string[2] == let char = string.charAt(2) => takes the character at position 2
+// strings can be iterated with for of loop
+// let result = greeting.concat(name) => concatenates string "greeting" with string "name"
+// console.log(string.indexOf("Java")) => searches for "Java" in "string" and returns the index of it (spaces between words count for position)
+// let lastIndex = string.lastIndexOf("o"); => searches for "o" in "string" and returns the last index where "o" is found
+// let cutString = string.substring(startIndex, endIndex) => cuts the given indexes from "string"and returns them 
+// replace(search, replacement) = let replacedText = text.replace(".bg", ".com"); => searches for ".bg" in "text" and replaces it with ".com"
+// boolean: includes(substr) = text.includes("banana") => searches for "banana" in "text" and if found returns true, if not found returns false
+// let passwordStars = '*'.repeat(5) or let passHidden = '*'.repeat(pass.length); => repeats given string the assigned times
+// trim(), trimStart() and trimEnd() => remove whitespaces from both sides of the string, from the start of the string or from the end of the string
+// startsWith('string') and endsWith('string') => checks if the string starts with the given string or ends with the given string
+// padStart() =>  add to the current string another substring at the start until a length is reached: text.padStart(8, '0') adds 0s until a length is 8 positions
+// padEnd() => add to the end of the current string another substring at the end until a length is reached: sentence.padEnd(20, '.') adds .s until a length is 20 positions
+
+//-------- RegEx ----------
+// let regex = /\d{1,2}-[a-zA-Z]{3}-\d{4}/gm;
+// let regex = new RegExp (`\d{1,2}-[a-zA-Z]{3}-\d{4}`, "gm");
+// let match = regex.exec(text); => executes the regex over the variable "text"
+// let match = text.match(regex); => executes the regex over the variable "text" same as above
+// let test = regex.test(text); => returns true or false if there is a match
+// syntax for naming a group (?<>)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
