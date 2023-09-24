@@ -10,6 +10,7 @@ function townsToJSON(array){
     longitude = Number(longitude);
     let obj = {};
     obj.Town = town;
+    // Помощ за тези 2 реда ако може
     obj.Latitude = Math.round(latitude * 100) / 100;
     obj.Longitude = Math.round(longitude * 100) / 100;
     res.push(obj);
