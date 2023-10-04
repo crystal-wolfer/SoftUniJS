@@ -1,5 +1,5 @@
 function solution(inputArray){
-  let innerCollection = [];
+  let innerCollection = []; 
   inputArray.forEach(element => {
     let [command, string] = element.split(' ');
       if (command === 'add'){
