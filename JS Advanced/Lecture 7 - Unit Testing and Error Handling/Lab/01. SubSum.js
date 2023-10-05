@@ -10,8 +10,8 @@ function solve(array, startIndex, endIndex) {
   let result = 0;
 
   for (let i = startIndexAsNum; i <= endIndexAsNum; i++) {
-    const element = array[i];
-    result += element;
+    const element = Number(array[i]);
+    result += element
   }
 
   return result
