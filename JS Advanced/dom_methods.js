@@ -3,3 +3,8 @@
 //element1.after(element2) - appends element1 in HTML document after element2
 //element1.hasAttribute('name') - method returns true if the specified attribute exists, otherwise it returns false
 //el1.dataset.myAttributeName = 10 - method that sets custom attribute to el1 in the DOM it will look like this: data-my-attribute-name="10" (transformed into kebabCase)
+
+//Class method definition:
+// //this.calcArea = function(){
+//   return this.width * this.height;
+// };
