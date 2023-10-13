@@ -8,19 +8,11 @@ const { nameFunc } = require("./fileName.js"); // imports the function I want to
 describe('name of the function', function () {
   describe('the scenario', function () {
     it('the test case', function () {
-      expect(nameFunc(input)).to.equal(output);
-    });
-
-    it('the test case', function () {
       assert.isUndefined(nameFunc(input));
     });
   });
 
   describe('the scenario', function () {
-    it('the test case', function () {
-      expect(nameFunc(input)).to.equal(output);
-    });
-
     it('the test case', function () {
       assert.isUndefined(nameFunc(input));
     });
