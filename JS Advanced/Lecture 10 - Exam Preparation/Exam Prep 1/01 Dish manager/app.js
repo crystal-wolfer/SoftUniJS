@@ -111,8 +111,12 @@ function solve() {
     lastNameInput.value = article.children[0].textContent.split(' ')[1];
     ageInput.value = article.children[1].textContent.split(', ')[1];
     genderSelect.value = article.children[1].textContent.split(', ')[0];
-    dishDescriptionInput.value = article.children[2].textContent.split(': ')[1];
+    dishDescriptionInput.value = article.children[2].textContent.replace("Dish description: ", "");
 
+    let arrayInput = [];
+    arrayInput.push(firstNameInput.value, lastNameInput.value, ageInput.value,genderSelect.value, dishDescriptionInput.value)
+    console.log(arrayInput);
+    
     // change the count of the in progress items
     let curNum = Number(progressCount.textContent);
     progressCount.textContent = curNum - 1;
