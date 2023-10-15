@@ -44,3 +44,5 @@ const chooseYourCar = {
         }
     }
 }
+console.log(chooseYourCar.carFuelConsumption(70,6));
+module.exports = {chooseYourCar};
