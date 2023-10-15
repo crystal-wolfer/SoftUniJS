@@ -93,7 +93,3 @@ console.log(contest.listOfFinalists);
 console.log(contest.rewarding("Peter"));
 console.log(contest.rewarding("Sasha"));
 console.log(contest.showRecord('female'));
-
-
-
-
