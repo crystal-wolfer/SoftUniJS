@@ -96,6 +96,3 @@ console.log(manager.restockItem("Drill", 5));
 console.log(manager.restockItem("Paintbrush", 1));
 console.log(manager.getInventorySummary());
 
-// Added 10 Drill(s) to the inventory.
-// Added 5 Hammer(s) to the inventory.
-// Uncaught Error Error: The inventory is already full.
