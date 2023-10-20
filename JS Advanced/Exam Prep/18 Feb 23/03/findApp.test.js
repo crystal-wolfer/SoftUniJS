@@ -60,3 +60,5 @@ describe('findNewApartment', function () {
     });
   });
 });
+
+//25min
