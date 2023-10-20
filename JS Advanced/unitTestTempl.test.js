@@ -12,9 +12,9 @@ describe('name of the function', function () {
     });
   });
 
-  describe('the scenario', function () {
-    it('the test case', function () {
-      assert.isUndefined(nameFunc(input));
-    });
-  });
+  // describe('the scenario', function () {
+  //   it('the test case', function () {
+  //     assert.isUndefined(nameFunc(input));
+  //   });
+  // });
 });
