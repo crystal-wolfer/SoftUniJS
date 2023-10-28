@@ -1,0 +1,7 @@
+//To stop a running server:
+// netstat -ano | findstr :3030
+// taskkill /F /PID <PID> -> <PID> is the num in the last column 
+// example: taskkill /F /PID 12345
+
+// to stat the server again: 
+// node server.js (or the name of the server)
