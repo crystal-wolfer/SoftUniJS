@@ -11,7 +11,7 @@ async function createRecipe(e) {
 
   const recipeData = {
     name: formData.get('name'),
-    image: formData.get('img'),
+    img: formData.get('img'),
     ingredients: formData.get('ingredients').split('\n'), //has to be done here because if not it becomes array of array
     steps: formData.get('steps').split('\n')
   }

@@ -22,10 +22,19 @@ async function login(e) {
   }
 
   // send the request
-  let response = await fetch(url, reqBody);
-  let responseResult = await response.json();
+  try{
+    let response = await fetch(url, reqBody);
+    let responseResult = await response.json();
+    if (response.code === 200) {
+      // in order to keep the login token inside the sessionStorage of the browser we need to set it
+      sessionStorage.setItem('accessToken', responseResult.accessToken)
+      window.location = 'index.html';
+    } else{
+      throw new Error(`Failed to login ${responseResult.code} message: ${responseResult.message}`);
+    }
+  }
+  catch(err){
+    throw new Error(err);;
+  }
 
-  // in order to keep the login token inside the sessionStorage of the browser we need to set it
-  sessionStorage.setItem('accessToken', responseResult.accessToken)
-  window.location = 'index.html';
 }
