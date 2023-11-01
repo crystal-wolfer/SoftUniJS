@@ -22,18 +22,22 @@ async function login(e) {
   }
 
   // send the request
-  try{
+  try {
     let response = await fetch(url, reqBody);
     let responseResult = await response.json();
-    if (response.code === 200) {
+    if (response.status === 200 && responseResult.email == sessionStorage.getItem('email')) {
       // in order to keep the login token inside the sessionStorage of the browser we need to set it
       sessionStorage.setItem('accessToken', responseResult.accessToken)
       window.location = 'index.html';
-    } else{
-      throw new Error(`Failed to login ${responseResult.code} message: ${responseResult.message}`);
+    } else {
+      if (sessionStorage.getItem('accessToken') == undefined) {
+        alert(`Failed to login: You have to register first.`);
+      } else {
+        alert(`Failed to login: ${ responseResult.message }`)
+      }
     }
   }
-  catch(err){
+  catch (err) {
     throw new Error(err);;
   }
 

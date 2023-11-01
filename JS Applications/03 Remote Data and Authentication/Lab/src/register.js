@@ -28,9 +28,15 @@ async function register(e) {
     let response = await fetch(url, reqBody);
     let responseResult = await response.json();
 
-    // in order to keep the login token inside the sessionStorage of the browser we need to set it
-    sessionStorage.setItem('accessToken', responseResult.accessToken)
-    window.location = 'index.html';
+    if (response.status === 200) {
+      // in order to keep the login token inside the sessionStorage of the browser we need to set it
+      sessionStorage.setItem('accessToken', responseResult.accessToken)
+      sessionStorage.setItem(`email`, responseResult.email)
+      window.location = 'index.html';
+    } else{
+      alert(`Failed to login: ${ responseResult.message }`)
+    }
+
   }
 }
 
