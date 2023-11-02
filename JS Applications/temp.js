@@ -9,10 +9,11 @@ async function submitFunction(e) {
   const form = e.target
   let formData = new FormData(form);
   form.reset() // resets the form inputs
+  let formDataArr = [...formData.entries];
 
   //2* Map methods to access  different properties and values
   mapName.get('nameKey') - returns the value associated with the key nameKey
-  mapName.set('nameKey', 'newValue') - changes the value associated with the key nameKey
+  mapName.set('nameKey', 'newValue') - changes the value associated with the key nameKey it doens't change the value attribute
   mapName.size - returns the number of elements in the map
   mapName.delete('nameKey') - deletes the value associated with the key nameKey
   let arrayMap = [... mapName.entries()] - returns an array of arrays with the key-value pairs
