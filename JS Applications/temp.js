@@ -8,6 +8,7 @@ async function submitFunction(e) {
   e.preventDefault(); // prevent the default page refresh
   const form = e.target
   let formData = new FormData(form);
+  form.reset() // resets the form inputs
 
   //2* Map methods to access  different properties and values
   mapName.get('nameKey') - returns the value associated with the key nameKey
@@ -138,3 +139,31 @@ async function submitFunction(e) {
     }
   } 
 
+//------------------------------------------------------------------------------------------//
+  // AJAX GET Request
+  const httpRequest = new XMLHttpRequest();
+  httpRequest.addEventListener("readystatechange",function () {
+     if (httpRequest.readyState === 4 && httpRequest.status === 200){
+      // write the logic
+      //httpRequest.responseText -> the returned response as and arr of objects
+     }
+  });
+
+  httpRequest.open('GET', url);
+  httpRequest.send();
+
+  // AJAX POST Request
+
+  const postReq = new XMLHttpRequest();
+  const obj = {
+    "firstName": fName,
+    "lastName": lName,
+    "facultyNumber": facNum,
+    "grade": Number(grade).toFixed(2),
+  }
+
+  // send tht data to the server
+  postReq.open('POST', URL, true);
+  postReq.setRequestHeader("Content-Type", "application/json");
+  const data = JSON.stringify(obj);
+  postReq.send(data);
