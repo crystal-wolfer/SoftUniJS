@@ -9,7 +9,8 @@ async function submitFunction(e) {
   const form = e.target
   let formData = new FormData(form);
   form.reset() // resets the form inputs
-  let formDataArr = [...formData.entries];
+  const formDataArray = Array.from(formData.entries())
+
 
   //2* Map methods to access  different properties and values
   mapName.get('nameKey') - returns the value associated with the key nameKey
@@ -102,12 +103,24 @@ async function submitFunction(e) {
     }
 
     // send the request
-    let response = await fetch(url, reqBody);
-    let responseResult = await response.json();
+    let request = await fetch(url, reqBody);
+    let response = await response.json();
 
     // in order to keep the login token inside the sessionStorage of the browser we need to set it
-    sessionStorage.setItem('email', responseResult.email)
-    sessionStorage.setItem('accessToken', responseResult.accessToken)
+    sessionStorage.setItem('email', response.email)
+    sessionStorage.setItem('accessToken', response.accessToken)
+
+    // more sophisticated way to keep the user information in the session
+    // obj to keep all needed information about the user
+    const userData = {
+      id: response._id,
+      accessToken: response.accessToken,
+      email: response.email,
+    }
+    sessionStorage.setItem('userData', JSON.stringify(userData));
+
+    const data = sessionStorage.getItem('userData');
+    const getUserData = JSON.parse(data); // convert it into an object
   }
 
 
@@ -168,3 +181,33 @@ async function submitFunction(e) {
   postReq.setRequestHeader("Content-Type", "application/json");
   const data = JSON.stringify(obj);
   postReq.send(data);
+
+  // Check for empty values
+  let hasEmptyField = false;
+
+  for (const [name, value] of formData.entries()) {
+    if (value === '') {
+      hasEmptyField = true;
+      break; // Exit the loop as soon as an empty field is found
+    }
+  }
+
+  if (hasEmptyField) {
+    alert("All fields are required");
+  }
+  
+
+//------------------------------------------------------------------------------------------//
+ // Proper error handling for API requests
+    // Making GET request and handling the response errors
+    try{
+      const request = await fetch(url, reqBody);
+      if (request.status === 200){
+        const response = await request.json();
+      } else {
+        divCatches.textContent = `Server error: ${request.status} Message: ${request.message}`;
+      }
+    }
+    catch (err) {
+      divCatches.textContent = `Fetch error: ${err}`
+    }
