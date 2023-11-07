@@ -211,3 +211,11 @@ async function submitFunction(e) {
     catch (err) {
       divCatches.textContent = `Fetch error: ${err}`
     }
+
+
+
+// Date in UTC
+var now = new Date(); // Create a Date object with the current date and time
+var utcNow = new Date(now.toISOString()); // Convert to UTC by using ISO format
+
+console.log(utcNow.toISOString()); // UTC time in ISO format
