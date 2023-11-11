@@ -1,3 +1,15 @@
+//------------------------------------------------------------------------------------------//
+// HTML-LIT TEMPLATES
+import {html, render} from '../node_modules/lit-html/lit-html.js'
+
+// 1. Define the function that generates the html template with the inputs it accepts
+const htmlTemplate = () => html`<h2>Hello, Lit-HTML!</h2>`;
+// 2. Use the render method to render the template into the dom element
+render(htmlTemplate(), document.getElementById('div-main')); 
+
+
+
+
 // Handling FORM html element - must have "name" and "value" attributes
   // 1.Capture the form and set event listener to the button element
 const form = document.getElementById("formID");
