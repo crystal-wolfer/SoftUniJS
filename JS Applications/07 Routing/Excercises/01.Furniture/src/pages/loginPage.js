@@ -1,6 +1,6 @@
-import { html, render } from "../../../../../../node_modules/lit-html/lit-html.js";
+import { html, render } from "../../node_modules/lit-html/lit-html.js"
 import * as utils from '../utils.js'
-import page from "../../../../../../node_modules/page/page.mjs"
+import page from "../../node_modules/page/page.mjs"
 
 const root = document.querySelector("#root")
 
@@ -39,6 +39,10 @@ async function onClick(event) {
   event.preventDefault();
   const form = document.querySelector('form');
   const formData = new FormData(form)
+
+  //const {email, password} = Object.fromEntries(formData); 
+
+  // THIS can replaced by the above
   const email = formData.get('email')
   const pass = formData.get('password')
 

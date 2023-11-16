@@ -1,4 +1,4 @@
-import page from '../../.././../../node_modules/page/page.mjs'
+import page from "../../node_modules/page/page.mjs"
 import { renderCatalog } from './pages/homePage.js'
 import { renderDetails } from './pages/detailsPage.js'
 import { renderLogin } from './pages/loginPage.js'
