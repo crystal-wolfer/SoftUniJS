@@ -100,17 +100,17 @@ async function onClick(event) {
 
 function validateInput(arr, inputs){
   //make [0]
-  inputs[0].length > 3 ? addClass(arr[0], true) : addClass(arr[0] , false)
+  inputs[0].length > 3 && inputs[0] !== null ? addClass(arr[0], true) : addClass(arr[0] , false)
   //model
-  inputs[1].length > 3 ? addClass(arr[1], true) : addClass(arr[1] , false)
+  inputs[1].length > 3 && inputs[1] !== null? addClass(arr[1], true) : addClass(arr[1] , false)
   //year
-  inputs[2] > 1950 && inputs[2] < 2050 ? addClass(arr[2], true) : addClass(arr[2] , false)
+  inputs[2] > 1950 && inputs[2] < 2050 && inputs[2] !== null? addClass(arr[2], true) : addClass(arr[2] , false)
   //description
-  inputs[3].length > 10 ? addClass(arr[3], true) : addClass(arr[3] , false)
+  inputs[3].length > 10 && inputs[3] !== null? addClass(arr[3], true) : addClass(arr[3] , false)
   //price
-  inputs[4].length > 0 ? addClass(arr[4], true) : addClass(arr[4] , false)
+  inputs[4].length > 0 && inputs[4] !== null? addClass(arr[4], true) : addClass(arr[4] , false)
   //img
-  inputs[5].length > 0 ? addClass(arr[5], true) : addClass(arr[5] , false)
+  inputs[5].length > 0 && inputs[5] !== null? addClass(arr[5], true) : addClass(arr[5] , false)
 }
 
 function addClass(el, bool){
