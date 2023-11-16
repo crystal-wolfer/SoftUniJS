@@ -7,7 +7,8 @@ const htmlTemplate = () => html`<h2>Hello, Lit-HTML!</h2>`;
 // 2. Use the render method to render the template into the dom element
 render(htmlTemplate(), document.getElementById('div-main')); 
 
-
+// check if user.id is set or not
+${data._ownerId === user?.id} //? is covering the null case
 
 
 // Handling FORM html element - must have "name" and "value" attributes

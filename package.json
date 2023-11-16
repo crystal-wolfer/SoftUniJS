@@ -19,7 +19,8 @@
   "dependencies": {
     "chai": "^4.3.10",
     "lit-html": "^3.0.2",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "page": "^1.11.6"
   },
   "devDependencies": {
     "playwright-chromium": "^1.39.0"
