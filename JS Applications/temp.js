@@ -10,6 +10,10 @@ render(htmlTemplate(), document.getElementById('div-main'));
 // check if user.id is set or not
 ${data._ownerId === user?.id} //? is covering the null case
 
+// entries from forms:
+const formData = new FormData(form)
+const {email, password} = Object.fromEntries(formData); 
+
 
 // Handling FORM html element - must have "name" and "value" attributes
   // 1.Capture the form and set event listener to the button element
