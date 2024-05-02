@@ -18,6 +18,7 @@
   "homepage": "https://github.com/crystal-wolfer/SoftUniJS#readme",
   "dependencies": {
     "chai": "^4.3.10",
+    "express": "^4.19.2",
     "lit-html": "^3.0.2",
     "mocha": "^10.2.0",
     "page": "^1.11.6"
