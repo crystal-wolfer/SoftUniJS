@@ -1,20 +1,16 @@
 const express = require('express');
-const handlebars = require('express-handlebars');
-const path = require('path');
+const handlebarsConfig = require('./src/config/handlebarsConfig.js');
+const expressConfig = require('./src/config/expressConfig.js');
 
+// Local variables
 const app = express();
 const PORT = 5000;
 
-//Handlebars configuration
-app.engine('hbs', handlebars.engine({extname: 'hbs'}));
-app.set('view engine', 'hbs');
-app.set('views', 'src/views');
+//Configurations
+handlebarsConfig(app);
+expressConfig(app);
 
-//Setup static files
-const staticFiles = express.static(path.resolve(__dirname, "src/public")); // using the path lib to resolve path files like images and css files
-app.use(staticFiles)
-
-
+// Routing
 app.get('/', (req, res) => {
   res.render('index');
 }); 
