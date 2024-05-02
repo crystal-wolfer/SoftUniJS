@@ -1,5 +1,6 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
+const path = require('path');
 
 const app = express();
 const PORT = 5000;
@@ -8,6 +9,10 @@ const PORT = 5000;
 app.engine('hbs', handlebars.engine({extname: 'hbs'}));
 app.set('view engine', 'hbs');
 app.set('views', 'src/views');
+
+//Setup static files
+const staticFiles = express.static(path.resolve(__dirname, "src/public")); // using the path lib to resolve path files like images and css files
+app.use(staticFiles)
 
 
 app.get('/', (req, res) => {
