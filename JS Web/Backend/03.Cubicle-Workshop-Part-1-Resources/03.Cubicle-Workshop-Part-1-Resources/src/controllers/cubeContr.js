@@ -13,4 +13,17 @@ router.post('/create', (req, res) => {
   res.redirect('/');
 });
 
+router.get('/details/:cubeId', (req, res) => {
+  const {cubeId} = req.params
+  const cube = cubeService.getCube(cubeId);
+
+  //check if there is a valid ID if not redirecting to 404
+  if (!cube) {
+    res.redirect('/404');
+    return;
+  }
+
+  res.render('details', { ...cube });
+}); 
+
 module.exports = router;

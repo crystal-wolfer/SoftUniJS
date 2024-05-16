@@ -2,8 +2,9 @@ const router = require('express').Router();
 const cubeService = require('../services/cubeService.js')
 
 router.get('/', (req, res) => {
-  const cubes = cubeService.getAllCubes();
-  res.render('index', { cubes });
+  const {search, from, to } = req.query
+  const cubes = cubeService.getAllCubes(search, from, to ); //request all cubes to render them with the query prarams if there
+  res.render('index', { cubes, search, from, to });
 });
 
 router.get('/about', (req, res) => {
