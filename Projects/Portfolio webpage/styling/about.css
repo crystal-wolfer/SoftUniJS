@@ -1,0 +1,54 @@
+.section-about{
+  display: flex;
+  height: 60vh;
+  width: 100%;
+  min-width: min-content;
+  margin-top: 70px;
+}
+
+.container-about{
+  width: 70%;
+  height: 100%;
+  margin: 0 15%;
+  flex-direction: row;
+  position: relative;
+  background-color: white;
+  border-radius: 25px;  
+}
+
+.col1{
+  width: 50%;
+  display: flex;
+  justify-content: left;
+  vertical-align: center;
+}
+
+.row1{
+  height: 30%;
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.row2{
+  height: 30%;
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+.p1-about{
+  font-size: 2vw;
+  margin-left: 6vw;
+  margin-top: 6vh;
+  line-height: 145%;
+  font-weight: 600;
+}
+
+.p2-about{
+  font-size: 1vw;
+  margin-left: 6vw;
+  margin-top: 1vh;
+  display: block;
+  word-wrap: normal;
+  }

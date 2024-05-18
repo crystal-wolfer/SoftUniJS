@@ -1,0 +1,111 @@
+.container-header{
+  padding: 24px 15%;
+}
+
+.header-main{
+  display: flex;
+  position: fixed;
+  background-color: #ffffff;
+  border: 1px solid #e9eaec;
+  border-radius: 40px;
+  height: 80px;
+  width: 70%;
+  z-index: 100;
+  min-width: min-content;
+  align-self: center;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  
+}
+
+.logo-img{
+  height: 50px;
+  vertical-align: middle;
+  padding: 0 16px;
+}
+
+.menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-width: min-content;
+  width: 25%;
+}
+
+.menu, .contact-container span{
+  font-size: 14px;
+  font-weight: 500;
+  
+}
+
+/* Vertical lines */
+.vl {
+  border-left: 1px solid #e9eaec;
+  height: 20px;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+} 
+
+.link-container{
+  margin: 0 28px;
+  padding: 10px 14px;
+  transition: background-color 0.15s ease-in-out, border-radius 0.15s ease-in-out;
+}
+
+.link-container:hover{
+  background-color: #f7f7f8;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.contact-menu{
+  display: flex;
+  flex: 1;
+  justify-content: right;
+  align-items: center;
+}
+
+.contact-container{
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  padding: 12px 10px;
+  background-color: #ffef5c;
+  margin-right: 20px;
+  border-radius: 30px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.contact-container:hover{
+  background-color: #f9e536;
+  cursor: pointer;
+}
+
+.contact-icon{
+  height: 24px;
+  margin: 0 8px;
+}
+
+.contact-icon2{
+  height: 30px;
+  margin: 0 8px;
+}
+
+.contact-container span{
+  white-space: pre;
+  padding-right: 4px;
+}
+
+.links{
+  font-size: 14px;
+  padding: 0 8px;
+}
