@@ -20,8 +20,9 @@ router.get('/about', (req, res) => {
 
 
 router.get('/search', (req, res) => {
-  const {title} = req.query
-  res.render('search');
+  const {search, genre, year} = req.query;
+  const movies = movieManager.search(search, genre, year);
+  res.render('search', {movies, search, genre, year} );
 });
 
 // setting up every wrong endpoint to redirect to a 404 endpoint
