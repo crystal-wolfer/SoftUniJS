@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//const cubeService = require('../services/cubeService.js')
+const movieManager = require('../managers/movieManager.js')
 
 // router.get('/', (req, res) => {
 //   const {search, from, to } = req.query
@@ -8,7 +8,9 @@ const router = require('express').Router();
 // });
 
 router.get('/', (req, res) => {
-  res.render('home'); 
+  const obj = movieManager.getAllMovies();
+  //console.log(obj);
+  res.render('home', {obj}); 
 });
 
 router.get('/about', (req, res) => {

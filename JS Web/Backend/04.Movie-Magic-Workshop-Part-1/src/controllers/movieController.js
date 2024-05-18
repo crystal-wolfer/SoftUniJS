@@ -8,7 +8,8 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
   const { name,  genre,  director,  year,  imgUrl,  rating,  description } = req.body;
-  movieManager.createMovie({ name,  genre,  director,  year,  imgUrl,  rating,  description });
+  movieManager.createMovie({ name,  genre,  director,  year,  imgUrl,  rating: Number(rating),  description });
+  res.redirect('/');
 });
 
 module.exports = router

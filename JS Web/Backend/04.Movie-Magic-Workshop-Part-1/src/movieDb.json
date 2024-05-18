@@ -1,6 +1,7 @@
 {
   "movies": [
     {
+      "id": "gibt4p0lwbvovb6",
       "name": "Jungle Cuise",
       "genre": "Adventure",
       "director": "Jaume Collet-Serra",
@@ -9,23 +10,26 @@
       "rating": 4,
       "description": "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans. And, sooner or later, the jungle always wins. "
     },
+
     {
-      "name": "Jungle Cuise2",
-      "genre": "Comedy",
-      "director": "Jaume Collet-Serra",
-      "year": 2023,
-      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb5Wza4t41h5iuKpxEVWmWToXilhmQwJNDgoOT5dIXJQ&s",
+      "id": "gibt8p0lwbvovb6",
+      "name": "Free Guy",
+      "genre": "Action",
+      "director": "Shawn Levy",
+      "year": "2019",
+      "imgUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS1piZldN6e3QQyEX1ag9s6Lcv-ffKsEUV5pAnbMTV4BUQGqOBd",
       "rating": 4,
-      "description": "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans. And, sooner or later, the jungle always wins. "
+      "description": "When Guy, a bank teller, learns that he is a non-player character in a bloodthirsty, open-world video game, he goes on to become the hero of the story and takes the responsibility of saving the world."
     },
     {
-      "name": "Jungle Cuise2",
-      "genre": "Comedy",
-      "director": "Jaume Collet-Serra",
-      "year": 2023,
-      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb5Wza4t41h5iuKpxEVWmWToXilhmQwJNDgoOT5dIXJQ&s",
-      "rating": 4,
-      "description": "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans. And, sooner or later, the jungle always wins. "
+      "id": "gibt9nclwbvu25p",
+      "name": "Mafia Mamma",
+      "genre": "2022",
+      "director": "Catherine Hardwicke",
+      "year": "2023",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHcIM4R5mjjYVFAtDZqF8WMy66BjJMRruVpK4uRinSfgTRdreM",
+      "rating": 3,
+      "description": "An American mom inherits her grandfather's mafia empire in Italy. Guided by the firm's consigliere, she hilariously defies everyone's expectations as the new head of the family business."
     }
   ]
 }
