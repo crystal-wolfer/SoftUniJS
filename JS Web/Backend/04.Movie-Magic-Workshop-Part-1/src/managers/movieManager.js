@@ -73,6 +73,20 @@ exports.getMovie = (id) => {
     }
 }
 
+exports.search = (data) => {
+    try {
+        const data = fs.readFileSync('src/movieDb.json', 'utf8');
+        const jsonData = JSON.parse(data);
+        const movies = jsonData.movies;
+        
+        
+
+    } catch (error) {
+        console.error('Error reading JSON file:', error);
+        return [];
+    }
+};
+
 //Async version not working can't figureout why
 // exports.getAllMovies = () => {
 //   fs.readFile("src/movieDb.json", "utf-8", (err, data) => {

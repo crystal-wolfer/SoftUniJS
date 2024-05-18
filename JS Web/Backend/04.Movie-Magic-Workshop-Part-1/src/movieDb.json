@@ -43,6 +43,17 @@
       "rating": 2,
       "description": "Solène, a 40-year-old single mom, begins an unexpected romance with 24-year-old Hayes Campbell, the lead singer of August Moon, the hottest boy band on the planet.",
       "stars": "★★"
+    },
+    {
+      "id": "gibtb80lwc1dv30",
+      "name": "Deadpool & Wolverine",
+      "genre": "Action",
+      "director": "Shawn Levy",
+      "year": "2024",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAM1Q3k80YwjeSXldurTN8v93KA9JTXS3hPUnWiBvcn6KGEH0-",
+      "rating": 5,
+      "description": "Wolverine is recovering from his injuries when he crosses paths with the loudmouth, Deadpool. They team up to defeat a common enemy.",
+      "stars": "★★★★★"
     }
   ]
 }
