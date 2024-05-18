@@ -8,10 +8,22 @@ exports.createMovie = (movieData) => {
     } else {
       try{ 
         let obj = JSON.parse(data);
+        let stars = null;
+        const rating = movieData.rating;
+        //generating the stars
+        switch (rating){
+          case 1: stars = "★"; break;
+          case 2: stars = "★★"; break;
+          case 3: stars = "★★★"; break;
+          case 4: stars = "★★★★"; break;
+          case 5: stars = "★★★★★"; break;
+          default: stars = 'Not rated yet'; break;
+        }
 
         let newMovie = {
           id: uniqid(), //using uniqid npm package to generate unique id for each new cube
           ...movieData, //spreading the data thata comes
+          stars,
         }; 
         
         obj.movies.push(newMovie);
@@ -42,6 +54,19 @@ exports.getAllMovies = () => {
 
         // Return the 'movies' array
         return jsonData.movies;
+    } catch (error) {
+        console.error('Error reading JSON file:', error);
+        return [];
+    }
+}
+
+exports.getMovie = (id) => {
+  try {
+        const data = fs.readFileSync('src/movieDb.json', 'utf8');
+        const jsonData = JSON.parse(data);
+        const movies = jsonData.movies;
+        return movies.find((movie) => movie.id === id);
+
     } catch (error) {
         console.error('Error reading JSON file:', error);
         return [];

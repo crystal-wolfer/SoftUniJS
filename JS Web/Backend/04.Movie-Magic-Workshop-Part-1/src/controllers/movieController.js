@@ -12,4 +12,17 @@ router.post('/create', (req, res) => {
   res.redirect('/');
 });
 
+router.get('/details/:movieId', (req, res) => {
+  const {movieId} = req.params
+  const movie = movieManager.getMovie(movieId);
+  
+  //check if there is a valid ID if not redirecting to 404
+  if (!movie) {
+    res.redirect('/404');
+    return;
+  }
+
+  res.render('details', { ...movie });
+}); 
+
 module.exports = router

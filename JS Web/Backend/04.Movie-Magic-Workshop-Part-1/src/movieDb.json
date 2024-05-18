@@ -8,9 +8,9 @@
       "year": 2023,
       "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb5Wza4t41h5iuKpxEVWmWToXilhmQwJNDgoOT5dIXJQ&s",
       "rating": 4,
-      "description": "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans. And, sooner or later, the jungle always wins. "
+      "description": "Dreaming about saving countless lives and having another adventure, the feisty English feminist and doctor of botany, Dr Lily Houghton, embarks on a peril-laden mission to change the world. Along with her fashionable brother, MacGregor, Dr Houghton enlists the help of the arrogant, wisecracking riverboat skipper, Captain Frank Wolff, to guide them through the serpentine Amazon River in La Quila, his swift wooden boat. Now, as the intrepid trio ventures deeper and deeper into the heart of an impenetrable green maze, searching for something that cannot be found, a centuries-old curse and the ruthless aristocrat, Prince Joachim, threaten to put an end to their ambitious plans. And, sooner or later, the jungle always wins. ",
+      "stars": "★★★★"
     },
-
     {
       "id": "gibt8p0lwbvovb6",
       "name": "Free Guy",
@@ -19,7 +19,8 @@
       "year": "2019",
       "imgUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS1piZldN6e3QQyEX1ag9s6Lcv-ffKsEUV5pAnbMTV4BUQGqOBd",
       "rating": 4,
-      "description": "When Guy, a bank teller, learns that he is a non-player character in a bloodthirsty, open-world video game, he goes on to become the hero of the story and takes the responsibility of saving the world."
+      "description": "When Guy, a bank teller, learns that he is a non-player character in a bloodthirsty, open-world video game, he goes on to become the hero of the story and takes the responsibility of saving the world.",
+      "stars": "★★★★"
     },
     {
       "id": "gibt9nclwbvu25p",
@@ -29,7 +30,19 @@
       "year": "2023",
       "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHcIM4R5mjjYVFAtDZqF8WMy66BjJMRruVpK4uRinSfgTRdreM",
       "rating": 3,
-      "description": "An American mom inherits her grandfather's mafia empire in Italy. Guided by the firm's consigliere, she hilariously defies everyone's expectations as the new head of the family business."
+      "description": "An American mom inherits her grandfather's mafia empire in Italy. Guided by the firm's consigliere, she hilariously defies everyone's expectations as the new head of the family business.",
+      "stars": "★★★"
+    },
+    {
+      "id": "gibt7f4lwbyg0p3",
+      "name": "The Idea of You",
+      "genre": "Romance",
+      "director": "Michael Showalter",
+      "year": "2024",
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScx4QBrzs2uxjK7IQONpRxYRiFC0mZVt1dsqI8pC5C9FMWDvKR",
+      "rating": 2,
+      "description": "Solène, a 40-year-old single mom, begins an unexpected romance with 24-year-old Hayes Campbell, the lead singer of August Moon, the hottest boy band on the planet.",
+      "stars": "★★"
     }
   ]
 }

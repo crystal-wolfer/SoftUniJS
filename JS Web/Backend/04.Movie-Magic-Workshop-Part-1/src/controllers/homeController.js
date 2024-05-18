@@ -18,9 +18,9 @@ router.get('/about', (req, res) => {
 });
 
 
-router.get('/details', (req, res) => {
-  res.render('details');
-});
+// router.get('/details', (req, res) => {
+//   res.render('details');
+// });
 
 router.get('/search', (req, res) => {
   res.render('search');
