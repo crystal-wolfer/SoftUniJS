@@ -1,15 +1,9 @@
 const router = require('express').Router();
 const movieManager = require('../managers/movieManager.js')
 
-// router.get('/', (req, res) => {
-//   const {search, from, to } = req.query
-//   const cubes = cubeService.getAllCubes(search, from, to ); //request all cubes to render them with the query prarams if there
-//   res.render('index', { cubes, search, from, to });
-// });
 
 router.get('/', (req, res) => {
   const obj = movieManager.getAllMovies();
-  //console.log(obj);
   res.render('home', {obj}); 
 });
 
