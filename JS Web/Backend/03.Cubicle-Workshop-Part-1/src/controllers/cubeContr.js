@@ -15,7 +15,6 @@ router.post('/create', async (req, res) => {
 
 router.get('/details/:cubeId', async (req, res) => {
   const {cubeId} = req.params
-  console.log(req.params);
   //mongoose works with mongoose documents not standard objects. To make it work with handlebars we need to use the lean() method from mongoose which will return a pure object
   const cube = await cubeService.getCube(cubeId).lean(); 
 
