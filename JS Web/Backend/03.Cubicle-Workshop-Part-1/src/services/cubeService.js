@@ -1,4 +1,5 @@
 const uniqid = require('uniqid');
+const Cube = require('../models/Cube.js')
 const cubes = [  {
     id: 'gibth5klw9556l6',
     name: 'cube1',
@@ -23,18 +24,15 @@ const cubes = [  {
   
   ]; // Array of all cubes available
 
-exports.createCube = (cubeData) => {
-  const newCube = {
-    id: uniqid(), //using uniqid npm package to generate unique id for each new cube
-    ...cubeData, //spreading the data thata comes
-  } 
-  cubes.push(newCube);
+exports.createCube = async (cubeData) => {
+  const newCube = await Cube.create(cubeData);
   return newCube;
 }
 
-exports.getAllCubes = (search, from, to) => {
-  let filterCubes = [...cubes];
+exports.getAllCubes = async (search, from, to) => {
+  let filterCubes = await Cube.find().lean();
 
+  //TODO: use mongoose to filter in the DB not in the server
   if (search){
     filterCubes = filterCubes.filter(c => c.name.toLowerCase().includes(search.toLowerCase()));
   }
@@ -55,8 +53,6 @@ exports.getAllCubes = (search, from, to) => {
 };
 
 exports.getCube = (id) => {
-  return cubes.find((cube) => cube.id === id);
+  return Cube.findById(id);//the thing that uses this function should await it here it's simple so no need to await it because this is just a query
 }
 
-
-//return [...cubes]; //returns a copy of the array with all cubes available
