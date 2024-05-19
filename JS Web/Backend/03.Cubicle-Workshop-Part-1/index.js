@@ -3,6 +3,7 @@ const express = require('express');
 const handlebarsConfig = require('./src/config/handlebarsConfig.js');
 const expressConfig = require('./src/config/expressConfig.js');
 const router = require('./src/router.js');
+const dbConnect = require('./src/config/dbConfig.js');
 
 // Local variables
 const app = express();
@@ -10,7 +11,12 @@ const PORT = 5000;
 
 //Configurations
 handlebarsConfig(app); 
-expressConfig(app);   
+expressConfig(app);
+
+//Connect to database
+dbConnect()
+  .then(() => {console.log('DB connected successfully!')})  
+  .catch((err) => {console.console.log('DB error: ', err);}); 
 
 // Routing
 app.use(router); 
