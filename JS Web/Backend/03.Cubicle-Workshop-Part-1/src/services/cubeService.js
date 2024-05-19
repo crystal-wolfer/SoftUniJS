@@ -33,3 +33,11 @@ exports.getCube = (id) => {
   return Cube.findById(id);//the thing that uses this function should await it here it's simple so no need to await it because this is just a query
 }
 
+//attaching accessory to a cube
+exports.attachAcc = async (cubeId, accessoryId) => {
+  const cube = await Cube.findById(cubeId);
+  cube.accessories.push(accessoryId);
+
+  return cube.save();
+}
+ 
