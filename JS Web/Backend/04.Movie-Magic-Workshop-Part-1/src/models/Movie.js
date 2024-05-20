@@ -9,7 +9,6 @@ const movieSchema = new mongoose.Schema({
   rating: String,
   description: String,
   imageUrl: String,
-  
   cast: [{
     type: mongoose.Types.ObjectId,
     ref: 'Cast',
