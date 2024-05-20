@@ -15,6 +15,17 @@ exports.getMovie = async (id) => {
   return movie;
 };
 
+exports.getMovieWithCast = (id) => {
+  return Movie.findById(id).populate('cast').lean(); //populate is integrated method that automatically poopulates all the data from the cast table it's better to segrerate them
+}
+
+exports.addCast = async (castId, movieId) =>{
+  const movie = await Movie.findById(movieId);
+  movie.cast.push(castId);
+
+  return movie.save();
+}
+
 exports.search = async (search, genre, year) => {
   let movies = await Movie.find().lean();
 
@@ -36,3 +47,5 @@ exports.search = async (search, genre, year) => {
 
   return movies;
 };
+
+

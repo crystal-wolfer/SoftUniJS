@@ -25,8 +25,8 @@ router.post('/create', (req, res) => {
 
 router.get('/details/:movieId', async (req, res) => {
   const {movieId} = req.params
-  const movie = await movieManager.getMovie(movieId);
-  
+  const movie = await movieManager.getMovieWithCast(movieId);
+    
   //check if there is a valid ID if not redirecting to 404
   if (!movie) {
     res.redirect('/404');
@@ -42,6 +42,14 @@ router.get('/details/:movieId/add-cast', async (req, res) =>{
   const cast = await castManager.getNonAttachedCast(movie.cast);
 
   res.render('./cast/attach', {movie, cast});
+});
+
+router.post('/details/:movieId/add-cast', async (req,res) => {
+  const {cast: castId} = req.body
+  const {movieId} = req.params 
+  await movieManager.addCast(castId,movieId);
+
+  res.redirect(`/movies/details/${movieId}`)
 });
 
 module.exports = router
