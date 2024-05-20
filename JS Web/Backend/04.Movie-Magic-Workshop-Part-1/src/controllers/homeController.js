@@ -2,8 +2,8 @@ const router = require('express').Router();
 const movieManager = require('../managers/movieManager.js')
 
 
-router.get('/', (req, res) => {
-  const obj = movieManager.getAllMovies();
+router.get('/', async (req, res) => {
+  const obj = await movieManager.getAllMovies();
   res.render('home', {obj}); 
 });
 
