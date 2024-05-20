@@ -30,7 +30,11 @@ exports.getAllCubes = async (search, from, to) => {
 };
 
 exports.getCube = (id) => {
-  return Cube.findById(id);//the thing that uses this function should await it here it's simple so no need to await it because this is just a query
+  return Cube.findById(id); //the thing that uses this function should await it here it's simple so no need to await it because this is just a query; 
+}
+
+exports.getCubeWithAcc = (id) => {
+  return Cube.findById(id).populate('accessories'); //populate is integrated method that automatically poopulates all the data from the accessories table it's better to segrerate them
 }
 
 //attaching accessory to a cube
