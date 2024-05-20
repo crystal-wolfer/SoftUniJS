@@ -8,6 +8,7 @@ router.get('/create', async (req, res) => {
 
 router.post('/create', (req, res) => {
   const { name,  genre,  director,  year,  imageUrl,  rating,  description } = req.body;
+  //creating the additional stars property that will be keeping the symbols that will be displayed in the details page
   let stars = '';
   switch (rating) {
     case '1': stars = '★'; break;
