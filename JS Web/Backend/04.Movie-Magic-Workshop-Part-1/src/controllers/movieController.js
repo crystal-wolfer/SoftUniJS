@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const movieManager = require('../managers/movieManager.js')
+const castManager = require('../managers/castManager.js');
 
 router.get('/create', async (req, res) => {
   await movieManager.getAllMovies();
@@ -34,5 +35,13 @@ router.get('/details/:movieId', async (req, res) => {
 
   res.render('details', { ...movie });
 }); 
+
+router.get('/details/:movieId/add-cast', async (req, res) =>{
+  const {movieId} = req.params
+  const movie = await movieManager.getMovie(movieId);
+  const cast = await castManager.getNonAttachedCast(movie.cast);
+
+  res.render('./cast/attach', {movie, cast});
+});
 
 module.exports = router
