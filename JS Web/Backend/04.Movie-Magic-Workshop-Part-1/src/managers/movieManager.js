@@ -11,17 +11,9 @@ exports.getAllMovies = async() => {
  return movies;
 }
 
-exports.getMovie = (id) => {
-  try {
-        const data = fs.readFileSync('src/movieDb.json', 'utf8');
-        const jsonData = JSON.parse(data);
-        const movies = jsonData.movies;
-        return movies.find((movie) => movie.id === id);
-
-    } catch (error) {
-        console.error('Error reading JSON file:', error);
-        return [];
-    }
+exports.getMovie = async (id) => {
+  const movie = await Movie.findById(id).lean();
+  return movie;
 }
 
 exports.search = (search, genre, year) => {
