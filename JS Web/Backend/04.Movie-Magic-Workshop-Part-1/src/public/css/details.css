@@ -250,11 +250,16 @@ main a.btn {
   padding: 12px 24px;
   border: 0;
   color: #fff;
-  background: #000a47;
+  background: #424242;
   line-height: 1.15;
   font-size: 16px;
-  :hover {
-    transition: all 0.1s ease;
-    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
-  }
+  margin-top: 24px;
+  margin-right: 8px;
+}
+
+button,
+main a.btn:hover {
+  transition: all 0.1s ease;
+  background: #929292;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #141817;
 }
