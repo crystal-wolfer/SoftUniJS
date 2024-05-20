@@ -7,7 +7,7 @@ router.get('/create', async (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-  const { name,  genre,  director,  year,  imageUrl,  rating,  description } = req.body;
+  const { title,  genre,  director,  year,  imageUrl,  rating,  description } = req.body;
   //creating the additional stars property that will be keeping the symbols that will be displayed in the details page
   let stars = '';
   switch (rating) {
@@ -18,7 +18,7 @@ router.post('/create', (req, res) => {
     case '5': stars = '★★★★★'; break;
     default: break;
   }
-  movieManager.createMovie({ name,  genre,  director,  year,  imageUrl,  rating: Number(rating), stars,  description });
+  movieManager.createMovie({ title,  genre,  director,  year,  imageUrl,  rating: Number(rating), stars,  description });
   res.redirect('/');
 });
 
