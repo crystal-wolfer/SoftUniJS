@@ -10,3 +10,8 @@ exports.getAllAcc = async () => {
   const accessories = await Accessory.find().lean();
   return accessories;
 }
+
+exports.getNonAttachedAcc = async (accessoryIds) => {
+  const accessories = await Accessory.find({_id: {$nin: accessoryIds}}).lean();
+  return accessories;
+}
