@@ -31,6 +31,6 @@ exports.login = async (username, password) => {
   }
   // setting the jwt token to be stored as a cookie with the payload, the secred and set it to expira in 1 day
   const token = await jwt.sign(payload, SECRET, {expiresIn:'1d'}) 
-
+  
   return token;
 };

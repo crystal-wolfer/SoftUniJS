@@ -10,7 +10,7 @@ router.get('/create', async(req, res) => {
 
 router.post('/create', async (req, res) => {
   const { name, description, imageUrl, difficultyLevel } = req.body;
-  await cubeService.createCube({name, description, imageUrl, difficultyLevel: Number(difficultyLevel)});  
+  await cubeService.createCube({name, description, imageUrl, difficultyLevel: Number(difficultyLevel), owner: req.user._id});  //add the owner id from the req.user cookie
   res.redirect('/');
 });
 
