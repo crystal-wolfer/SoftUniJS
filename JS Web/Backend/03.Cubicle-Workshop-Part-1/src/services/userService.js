@@ -15,6 +15,7 @@ exports.login = async (username, password) => {
     throw new Error(`Invalid username or password!`); 
   }
 
+// compare the given password against the password stored in the database
   const isPassValid = await bcrypt.compare(password, user.password);
   if (!isPassValid) {
     throw new Error(`Invalid username or password!`); 
