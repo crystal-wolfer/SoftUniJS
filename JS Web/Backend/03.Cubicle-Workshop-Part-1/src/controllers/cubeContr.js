@@ -2,18 +2,20 @@ const router = require('express').Router();
 const cubeService = require('../services/cubeService.js')
 const accessoryService = require('../services/accessoryService.js')
 
-
+// GET ALL CUBES
 router.get('/create', async(req, res) => {
   await cubeService.getAllCubes();
-  res.render('create');
+  res.render('cube/create');
 });
 
+// CREATE CUBE 
 router.post('/create', async (req, res) => {
   const { name, description, imageUrl, difficultyLevel } = req.body;
   await cubeService.createCube({name, description, imageUrl, difficultyLevel: Number(difficultyLevel), owner: req.user._id});  //add the owner id from the req.user cookie
   res.redirect('/');
 });
 
+// GET 1 CUBE
 router.get('/details/:cubeId', async (req, res) => {
   const {cubeId} = req.params
   //mongoose works with mongoose documents not standard objects. To make it work with handlebars we need to use the lean() method from mongoose which will return a pure object
@@ -25,9 +27,10 @@ router.get('/details/:cubeId', async (req, res) => {
     return;
   }
 
-  res.render('details', { ...cube });
+  res.render('cube/details', { ...cube });
 }); 
 
+// ATTACH CUBE ACCESSORY
 router.get('/:cubeId/attach-accessory', async (req, res) => {
   const {cubeId} = req.params
   const cube = await cubeService.getCube(cubeId).lean(); 
@@ -44,5 +47,20 @@ router.post('/:cubeId/attach-accessory', async (req,res) => {
 
   res.redirect(`/cube/details/${cubeId}`)
 });
+
+// DELETE CUBE
+router.get('/:cubeId/delete', async (req, res) => {
+  const {cubeId} = req.params 
+  const cube = await cubeService.getCube(cubeId).lean(); 
+  
+  res.render('cube/deleteCube', { cube });
+});
+
+router.post('/:cubeId/delete', async (req, res) => {
+  const {cubeId} = req.params 
+  await cubeService.deleteCube(cubeId)
+  res.redirect('/')
+});
+
 
 module.exports = router;
