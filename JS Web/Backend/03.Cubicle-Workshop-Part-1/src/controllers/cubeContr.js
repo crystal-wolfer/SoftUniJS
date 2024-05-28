@@ -28,7 +28,10 @@ router.get('/details/:cubeId', async (req, res) => {
     return;
   }
 
-  res.render('cube/details', { ...cube });
+  //check if user is the owner of the cube
+  const isOwner = req.user._id === cube.owner?.toString(); // because we have ObjectId in the owner so we need toString() ? is needed for the cubes without owners in the DB
+
+  res.render('cube/details', { ...cube, isOwner });
 }); 
 
 // ATTACH CUBE ACCESSORY
