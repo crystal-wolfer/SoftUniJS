@@ -31,7 +31,8 @@ router.post('/login', async (req, res) => {
 
 // LOGOUT
 router.get('/logout', (req, res) => {
-  console.log('logged out');
+  res.clearCookie('userAuth');
+  return res.redirect('/');
 });
 
 

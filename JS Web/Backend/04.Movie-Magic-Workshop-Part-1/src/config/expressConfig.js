@@ -8,6 +8,7 @@ const expressConfig = (app) => {
   app.use(express.static(path.resolve(__dirname, '../public'))) // using the path lib to resolve path files like images and css files 
   app.use(express.urlencoded({extended: false})) // Middleware to parse URL-encoded data in the body of incoming requests, typically from HTML form submissions.
   app.use(cookieParser()); 
+  app.use(auth)
 };
 
 module.exports = expressConfig;
