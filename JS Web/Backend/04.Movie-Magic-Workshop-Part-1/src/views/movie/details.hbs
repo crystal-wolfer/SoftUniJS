@@ -21,9 +21,11 @@
           </div>
 
           <p class="disc">Description: {{description}}</p>
+            <a class="btn" href="/">Back</a>
+            <a class="btn" href="/movies/details/{{_id}}/add-cast">Add Cast</a>
+            <a class="btn" href="/movies/details/{{_id}}/edit">Edit</a>
+            <a class="btn" href="/movies/details/{{_id}}/delete">Delete</a>
 
-          <a class="btn" href="/">Back</a>
-          <a class="btn" href="/movies/details/{{_id}}/add-cast">Add Cast</a>
         </div>
       </div>
       <div class="card_right">
@@ -32,24 +34,20 @@
 
     </div>
 
-    
     <div class="main-cast-card">
-    {{#each cast}}
-      <div class="cast-card">
-        <div class="card-img">
-          <img
-            src="{{imageUrl}}"
-            alt="cast"
-          />
+      {{#each cast}}
+        <div class="cast-card">
+          <div class="card-img">
+            <img src="{{imageUrl}}" alt="cast" />
+          </div>
+          <div class="cast-info">
+            <h1>{{name}}</h1>
+            <h3>Age: {{age}}</h3>
+            <h3>Born: {{born}}</h3>
+            <h3>Name in Movie: {{character}}</h3>
+          </div>
         </div>
-        <div class="cast-info">
-          <h1>{{name}}</h1>
-          <h3>Age: {{age}}</h3>
-          <h3>Born: {{born}}</h3>
-          <h3>Name in Movie: {{character}}</h3>
-        </div>
-      </div>
-    {{/each}}
+      {{/each}}
     </div>
 
   </section>

@@ -4,7 +4,7 @@ const castManager = require('../managers/castManager.js');
 
 router.get('/create', async (req, res) => {
   await movieManager.getAllMovies();
-  res.render('create');
+  res.render('movie/create');
 });
 
 router.post('/create', (req, res) => {
@@ -26,7 +26,7 @@ router.get('/details/:movieId', async (req, res) => {
     return;
   }
 
-  res.render('details', { ...movie });
+  res.render('movie/details', { ...movie });
 }); 
 
 router.get('/details/:movieId/add-cast', async (req, res) =>{
