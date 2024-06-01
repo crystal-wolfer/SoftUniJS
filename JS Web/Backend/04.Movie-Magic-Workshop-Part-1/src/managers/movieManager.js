@@ -48,4 +48,12 @@ exports.search = async (search, genre, year) => {
   return movies;
 };
 
+exports.deleteMovie = async (movieId) => {
+  await Movie.findByIdAndDelete(movieId);
+  return;
+};
 
+exports.editMovie = async (movieId, movieData) => {
+  await Movie.findByIdAndUpdate(movieId, movieData);
+  return;
+};

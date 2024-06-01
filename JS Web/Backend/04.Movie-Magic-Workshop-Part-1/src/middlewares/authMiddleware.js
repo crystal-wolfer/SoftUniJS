@@ -13,7 +13,7 @@ exports.auth = async (req, res, next) => {
       // set up authentication variable in the req obj that will be available in every request
       res.locals.isAuthenticated = true;
       res.locals.user = user;
-      next();
+       next();
     } catch (err){
       // in case the token is invalid
       res.clearCookie('userAuth'); 

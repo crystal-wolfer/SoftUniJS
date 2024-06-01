@@ -22,9 +22,11 @@
 
           <p class="disc">Description: {{description}}</p>
             <a class="btn" href="/">Back</a>
+            {{#if isOwner}}
             <a class="btn" href="/movies/details/{{_id}}/add-cast">Add Cast</a>
             <a class="btn" href="/movies/details/{{_id}}/edit">Edit</a>
             <a class="btn" href="/movies/details/{{_id}}/delete">Delete</a>
+            {{/if}}
 
         </div>
       </div>

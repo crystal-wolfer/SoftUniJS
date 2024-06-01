@@ -8,7 +8,7 @@
       </div>
 
       <form method="POST" class="editForm">
-        <h2>Edit Post</h2>
+        <h2>Delete Post</h2>
         <ul class="noBullet">
           <li>
             <label for="title">Title:</label>
@@ -18,6 +18,7 @@
               id="title"
               name="title"
               value="{{movie.title}}"
+              disabled="true"
             />
           </li>
           <li>
@@ -28,6 +29,7 @@
               id="genre"
               name="genre"
               value="{{movie.genre}}"
+              disabled="true"
             />
           </li>
           <li>
@@ -38,6 +40,7 @@
               id="director"
               name="director"
               value="{{movie.director}}"
+              disabled="true"
             />
           </li>
           <li>
@@ -48,6 +51,7 @@
               id="year"
               name="year"
               value="{{movie.year}}"
+              disabled="true"
             />
           </li>
           <li>
@@ -58,14 +62,15 @@
               id="image"
               name="imageUrl"
               value="{{movie.imageUrl}}"
+              disabled="true"
             />
           </li>
           <li>
             <label for="image">Rating:</label>
-            <select id="rating" name="rating" class="inputFields">
-              {{#each options}}
-                <option value="{{value}}" {{#if selected}}selected{{/if}}>{{title}}</option>
-              {{/each}}
+            <select id="rating" name="rating" class="inputFields" disabled="true">
+            {{#each options}}
+              <option value="{{value}}" {{#if selected}}selected{{/if}}>{{title}}</option>
+            {{/each}}
             </select>
           </li>
           <li>
@@ -73,10 +78,11 @@
             <textarea
               id="description"
               class="inputFields"
-              name="description">{{movie.description}}</textarea>
+              name="description"
+              disabled="true">{{movie.description}}</textarea>
           </li>
           <li id="center-btn">
-            <button type="submit" id="edit-btn">Edit</button>
+            <button type="submit" id="edit-btn">Delete</button>
           </li>
         </ul>
       </form>
