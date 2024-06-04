@@ -296,3 +296,10 @@ footer {
  border-radius: 5px;
  text-decoration: underline;
 }
+
+.error.input[type=text],
+.error.select,
+.error.textarea {
+  background-color: #EF5542;
+
+}

@@ -1,9 +1,8 @@
 const router = require("express").Router();
 const cubeService = require("../services/cubeService.js");
 const accessoryService = require("../services/accessoryService.js");
-const { generateDiffLevel } = require("../middlewares/utils.js");
+const { generateDiffLevel, getFields, getErrorMessages } = require("../middlewares/utils.js");
 const { isAuth } = require("../middlewares/authMiddleware.js");
-
 
 // GET ALL CUBES
 router.get("/create", isAuth, async (req, res) => {
@@ -14,14 +13,25 @@ router.get("/create", isAuth, async (req, res) => {
 // CREATE CUBE
 router.post("/create", isAuth, async (req, res) => {
   const { name, description, imageUrl, difficultyLevel } = req.body;
-  await cubeService.createCube({
-    name,
-    description,
-    imageUrl,
-    difficultyLevel: Number(difficultyLevel),
-    owner: req.user._id,
-  }); //add the owner id from the req.user cookie
-  res.redirect("/");
+  try {
+    await cubeService.createCube({
+      name,
+      description,
+      imageUrl,
+      difficultyLevel: Number(difficultyLevel),
+      owner: req.user._id,
+    }); //add the owner id from the req.user cookie
+    res.redirect("/");
+  } catch (error) {
+    const err = getErrorMessages(error);
+    const errFields = getFields(err);
+
+    // Check where the error came from and render the rest of the fields filled in
+    if (errFields.errorN = true) {
+    console.log(errFields.errorN);
+    res.status(400).render("./cube/create", { errorMessages: err, errorN: errFields.errorN});
+    }
+  }
 });
 
 // GET 1 CUBE
@@ -41,7 +51,7 @@ router.get("/details/:cubeId", async (req, res) => {
   if (req.user) {
     isOwner = req.user._id === cube.owner?.toString(); // because we have ObjectId in the owner so we need toString() ? is needed for the cubes without owners in the DB
   }
-  
+
   res.render("cube/details", { ...cube, isOwner });
 });
 

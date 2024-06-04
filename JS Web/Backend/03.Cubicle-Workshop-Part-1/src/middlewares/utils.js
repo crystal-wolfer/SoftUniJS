@@ -34,3 +34,23 @@ exports.getErrorMessages = (error) => {
     return [error.message];
   }
 };
+
+// FUNCTION THAT RETURNS WHICH FIELDS ARE NOT COMPLYING
+exports.getFields = (errorMessages) =>{
+  let fields = {
+    errorN: false,
+    errorD: false,
+    errorI: false,
+  };
+  errorMessages.forEach(m => {
+    if ( m.includes("Name")){
+      fields.errorN = true;
+    } else if (m.includes("Description")){
+      fields.errorD = true;
+    } else if (m.includes("URL")){
+      fields.errorI = true;
+    }
+  })
+  
+  return fields;
+}
