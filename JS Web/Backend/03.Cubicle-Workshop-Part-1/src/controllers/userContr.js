@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
     res.redirect("/user/login");
   } catch (error) {
     const err = getErrorMessages(error);
-    res.status(400).render("./userAuth/register", {errorMessages: err});
+    res.status(400).render("./userAuth/register", { errorMessages: err });
   }
 });
 
@@ -25,13 +25,17 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-  const token = await userService.login(username, password);
+  try {
+    const { username, password } = req.body;
+    const token = await userService.login(username, password);
 
-  // setting up the cookie
-  res.cookie("userAuth", token, { httpOnly: true });
-
-  res.redirect("/");
+    // setting up the cookie
+    res.cookie("userAuth", token, { httpOnly: true });
+    res.redirect("/");
+  } catch (error) {
+    const err = getErrorMessages(error);
+    res.status(400).render("./userAuth/login", { errorMessages: err });
+  }
 });
 
 // LOGOUT OPERATION
