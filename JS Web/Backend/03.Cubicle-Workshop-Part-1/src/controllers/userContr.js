@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { getErrorMessages } = require("../middlewares/utils.js");
 const userService = require("../services/userService.js");
 
 //REGISTER OPERATIONS
@@ -9,8 +10,13 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   const { username, password, repeatPassword } = req.body;
 
-  await userService.register({ username, password, repeatPassword });
-  res.redirect("/user/login");
+  try {
+    await userService.register({ username, password, repeatPassword });
+    res.redirect("/user/login");
+  } catch (error) {
+    const err = getErrorMessages(error);
+    res.status(400).render("./userAuth/register", {errorMessages: err});
+  }
 });
 
 //LOGIN OPERATIONS
