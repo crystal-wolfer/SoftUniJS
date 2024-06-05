@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
 
 // Repeat password is not in the schema so we need to create a new virtual instance of it to be able to validate the password. Workaround to make repeatPass visible to the Schema is to use the .virtual property which creates a virtual property that doesn't exist in the database later but is available to the Schema itself
 
-userSchema.virtual("repeatPass")
+userSchema.virtual("repeatPassword")
   .set(function (value) {
     if (value !== this.password) {
       throw new Error("Paswords do not match!");
