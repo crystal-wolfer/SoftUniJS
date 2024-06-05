@@ -297,9 +297,8 @@ footer {
  text-decoration: underline;
 }
 
-.error.input[type=text],
-.error.select,
-.error.textarea {
-  background-color: #EF5542;
 
+
+.error{
+  background-color: #ef56425e;
 }

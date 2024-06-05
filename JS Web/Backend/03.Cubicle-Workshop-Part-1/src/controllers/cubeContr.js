@@ -25,11 +25,17 @@ router.post("/create", isAuth, async (req, res) => {
   } catch (error) {
     const err = getErrorMessages(error);
     const errFields = getFields(err);
+    const isEmpty = Object.keys(errFields).length === 0 
 
     // Check where the error came from and render the rest of the fields filled in
-    if (errFields.errorN = true) {
-    console.log(errFields.errorN);
-    res.status(400).render("./cube/create", { errorMessages: err, errorN: errFields.errorN});
+    if (!isEmpty) {
+    res.status(400).render("./cube/create", { 
+      errorMessages: err, 
+      errorN: errFields.errorN,
+      errorD: errFields.errorD,
+      errorI: errFields.errorI,
+      name, description, imageUrl
+      });
     }
   }
 });

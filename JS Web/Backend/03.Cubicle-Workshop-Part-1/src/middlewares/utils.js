@@ -38,10 +38,13 @@ exports.getErrorMessages = (error) => {
 // FUNCTION THAT RETURNS WHICH FIELDS ARE NOT COMPLYING
 exports.getFields = (errorMessages) =>{
   let fields = {
-    errorN: false,
-    errorD: false,
-    errorI: false,
+
   };
+
+  let values = {
+
+  };
+
   errorMessages.forEach(m => {
     if ( m.includes("Name")){
       fields.errorN = true;
