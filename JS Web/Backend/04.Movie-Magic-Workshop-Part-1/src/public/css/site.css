@@ -120,7 +120,7 @@ footer {
 }
 
 .error-container {
-    position: fixed;
+    position: absolute;
     right: 5em;
     min-width: 80px;
     display: block;
@@ -134,7 +134,9 @@ footer {
     height: auto;
     width: 300px;
     padding: 1em;
+    margin-bottom: 8px;
 }
+
 
 .error-container>p {
     background: #22333B;

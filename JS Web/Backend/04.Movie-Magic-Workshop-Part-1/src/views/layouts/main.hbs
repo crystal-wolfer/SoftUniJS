@@ -10,6 +10,11 @@
 
 <body>
     <div id="box">
+        {{#each errorMessages}}
+        <div class="error-container">
+            <p>{{this}}</p>
+        </div>
+        {{/each}}
         <nav>
             <img src="/img/logo.webp" alt="logo">
             <ul class="menu">
@@ -35,6 +40,19 @@
             © JS Back-End Workshop
         </footer>
     </div>
+
+{{!-- Script that adds spacing to the error messages --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll('.error-container');
+            containers.forEach((container, index) => {
+                const spacing = 8; // spacing in pixels
+                const initialTop = 13; // initial top percentage
+                const topOffset = initialTop + (index * 6) + '%';
+                container.style.top = `calc(${topOffset} + ${spacing}px)`;
+            });
+        });
+    </script>
 
 </body>
 

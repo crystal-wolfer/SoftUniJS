@@ -3,8 +3,22 @@ const bcrypt = require("bcrypt");
 
 // Create the User schema
 const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
+  email: {
+    type: String,
+    unique: [true,"Email already in use!"],
+    minLength:[10, "Email must be at least 10 characters long!"],
+    match: [
+      /@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/,
+      "Email must end in the following format: @xx.xx!"
+    ],
+    required: [true, "Email field is required!"],
+  },
+  password: {
+    type: String,
+    required: [true,"Password field is required!"],
+    minLength: [6, "Password must be at least 6 characters long!"],
+    match: [/^[A-Za-z1-9]+$/, "Password must be alphanumeric!"],
+  }
 });
 
 // Repeat password is not in the schema so we need to create a new virtual instance of it to be able to validate the password. Workaround to make repeatPass visible to the Schema is to use the .virtual property which creates a virtual property that doesn't exist in the database later but is available to the Schema itself
@@ -12,7 +26,7 @@ const userSchema = new mongoose.Schema({
 userSchema.virtual("repeatPass")
   .set(function (value) {
     if (value !== this.password) {
-      throw new mongoose.MongooseError("Paswords do not match!");
+      throw new Error("Paswords do not match!");
     }
   });
 
