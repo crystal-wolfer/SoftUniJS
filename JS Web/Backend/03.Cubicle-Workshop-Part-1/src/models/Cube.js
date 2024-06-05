@@ -23,7 +23,8 @@ const cubeSchema = new mongoose.Schema({
     match: [
       /^https?:\/\/.*/,
       "Please enter a valid URL!"
-    ]
+    ],
+    required: [true, "Image URL is required!"],
   },
   difficultyLevel: Number,
   accessories: [
