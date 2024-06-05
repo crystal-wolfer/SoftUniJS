@@ -26,7 +26,6 @@ userSchema.virtual('repeatPassword')
     }
   })
 
-// TODO: validate if user already exists
 
 // Hashing the password before creating it as a DB record using the .pre property which lists action before a specified operation is executed in our case the save operation (.post is a property that lists actions after given operation)
 userSchema.pre('save', async function(){

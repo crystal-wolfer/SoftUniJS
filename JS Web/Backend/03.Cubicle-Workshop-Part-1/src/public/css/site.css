@@ -299,6 +299,6 @@ footer {
 
 
 
-.error{
-  background-color: #ef56425e;
+input.error, textarea.error {
+  border-color: #ef5642;
 }
