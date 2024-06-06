@@ -11,40 +11,40 @@
         <ul class="noBullet">
           <li>
             <label for="name">Name:</label>
-            <input type="text" class="inputFields" id="name" name="name" value="" />
+            <input type="text" id="name" name="name" {{#if errorN}}class="error"{{else}}class="inputFields"{{/if}} {{#if name}} value="{{name}}"{{/if}}/>
           </li>
           <li>
             <label for="age">Age:</label>
             <input
               type="number"
-              class="inputFields"
               id="age"
               name="age"
-              value=""
+              {{#if errorA}}class="error"{{else}}class="inputFields"{{/if}}
+              {{#if age}} value="{{age}}"{{/if}}
             />
           </li>
           <li>
             <label for="born">Born:</label>
-            <input type="text" class="inputFields" id="born" name="born" value="" />
+            <input type="text" id="born" name="born" {{#if errorB}}class="error"{{else}}class="inputFields"{{/if}} {{#if born}} value="{{born}}"{{/if}} />
           </li>
           <li>
             <label for="name-in-movie">Name in Movie:</label>
             <input
               type="text"
-              class="inputFields"
               id="name-in-movie"
               name="character"
-              value=""
+              {{#if errorC}}class="inputFields error"{{else}}class="inputFields"{{/if}} 
+              {{#if character}} value="{{character}}"{{/if}}
             />
           </li>
           <li>
             <label for="image">Cast Image:</label>
             <input
               type="text"
-              class="inputFields"
               id="image"
               name="imageUrl"
-              value=""
+              {{#if errorI}}class="error"{{else}}class="inputFields"{{/if}} 
+              {{#if imageUrl}} value="{{imageUrl}}"{{/if}}
             />
           </li>
           <li id="center-btn">
