@@ -1,0 +1,27 @@
+<main>
+
+  <section id="search">
+    <h1>Search</h1>
+    <form action="/search" method="GET" class="form">
+      <input type="text" class="search" name="search" placeholder="Title..." value = "{{search}}"/>
+      <input type="text" name="genre" class="genre" placeholder="Genre..." value = "{{genre}}"/>
+      <input type="number" name="year" class="year" placeholder="Year..." value = "{{year}}"/>
+      <input type="submit" value="search" />
+    </form>
+  </section>
+
+  <section id="catalog">
+    <div class="band">
+
+      <!-- If there are posts for creature in the database display each of them -->
+      {{#each movies}}
+      {{>movieTempl}}
+      {{else}}
+      <div class="no-posts">
+        <p class="no-offer">No movies found mathing your criteria...</p>
+      </div>
+      {{/each }}
+    </div>
+  </section>
+
+</main>

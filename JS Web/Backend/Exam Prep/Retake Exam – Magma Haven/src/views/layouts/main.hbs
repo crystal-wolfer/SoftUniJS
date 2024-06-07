@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <img src="/images/logo.avif" class="logo">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/volcanoes">All Volcanoes</a></li>
+                <li><a href="#">Create Volcano Wiki</a></li>
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register">Register</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+            <!-- In case of error, you should display div with class "errorContainer" -->
+        <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+        {{#each errorMessages}}
+        <div>
+            <div class="errorContainer">
+                <p>{{this}}</p>
+            </div>
+        </div>
+        {{/each}}
+
+    {{!-- This is where all other pages are rendered --}}
+    {{{body}}}  
+    <footer>
+        <p>&copy JS Back-End 2024</p>
+    </footer>
+
+</body>
+
+</html>

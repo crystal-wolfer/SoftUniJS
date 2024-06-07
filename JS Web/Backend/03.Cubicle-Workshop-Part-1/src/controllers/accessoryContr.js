@@ -16,7 +16,6 @@ router.post("/create", async (req, res) => {
     const err = getErrorMessages(error);
     const errFields = getFields(err);
     const isEmpty = Object.keys(errFields).length === 0;
-    console.log(imageUrl);
 
 
     // Check where the error came from and render the rest of the fields filled in
