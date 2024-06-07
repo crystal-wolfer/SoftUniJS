@@ -7,7 +7,7 @@ const dbConnect = require('./src/config/mongooseConfig.js')
 
 // Local variables
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 //Configurations
 handlebarsConfig(app); 

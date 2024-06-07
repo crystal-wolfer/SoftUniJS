@@ -25,8 +25,9 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
   try {
-    const { username, password } = req.body;
     const token = await userService.login(username, password);
 
     // setting up the cookie

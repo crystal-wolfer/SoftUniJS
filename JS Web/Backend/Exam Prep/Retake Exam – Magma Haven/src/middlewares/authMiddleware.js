@@ -28,7 +28,16 @@ exports.auth = async (req, res, next) => {
 // checks if the user is logged in and sets a server barier for non logged in users to not be able to access pages via API calls
 exports.isAuth = (req, res, next) => {
   if (!req.user){
-    return res.redirect('/user/login');
+    return res.redirect('404');
+  }
+
+  next();
+}
+
+// checks if the user is logged in and sets a server barier for non logged in users to not be able to access pages via API calls
+exports.isLoggedIn = (req, res, next) => {
+  if (req.user){
+    return res.redirect('/404');
   }
 
   next();
