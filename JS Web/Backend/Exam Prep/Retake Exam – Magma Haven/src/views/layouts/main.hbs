@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <nav>
-            <img src="/images/logo.avif" class="logo">
+            <a href="/"><img src="/images/logo.avif" class="logo"></a>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/search">Search</a></li>
@@ -38,11 +38,26 @@
         {{/each}}
 
     {{!-- This is where all other pages are rendered --}}
-    {{{body}}}  
+    {{{body}}}
+
     <footer>
         <p>&copy JS Back-End 2024</p>
     </footer>
 
+
+
+    {{!-- Script that adds spacing to the error messages so all of them are visible --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll('.errorContainer');
+            containers.forEach((container, index) => {
+                const spacing = 8; // spacing in pixels
+                const initialTop = 13; // initial top percentage
+                const topOffset = initialTop + (index * 12) + '%';
+                container.style.top = `calc(${topOffset} + ${spacing}px)`;
+            });
+        });
+    </script>
 </body>
 
 </html>

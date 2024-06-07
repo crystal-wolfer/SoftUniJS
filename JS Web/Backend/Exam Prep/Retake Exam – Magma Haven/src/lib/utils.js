@@ -1,23 +1,28 @@
 const { MongooseError } = require("mongoose");
 
 // FUNCTION THAT GENERETES THE DIFFICULTY LEVER OPTIONS
-exports.generateRating = (rating) => {
-  const options = [];
+exports.generateOptions = (typeVolcano) => {
+  const titles = [
+    "Supervolcanoes",
+    "Submarine",
+    "Subglacial",
+    "Mud",
+    "Stratovolcanoes",
+    "Shield",
+  ];
 
-  for (let i = 1; i <= 5; i + 1) {
-    (title = "★".repeat(i)),
-      (value = i),
-      (selected = Number(rating) === Number(i));
-    options.push({ title: title, value: value, selected: selected });
-    i++;
-  }
+  const options = titles.map((title, i) => ({
+    title: title,
+    value: title,
+    selected: typeVolcano === title,
+  }));
 
   return options;
 };
 
 // FUNCTION THAT RETURNS ERROR MESSAGES
 exports.getErrorMessages = (error) => {
-  if (error instanceof MongooseError || error.name === 'ValidationError') {
+  if (error instanceof MongooseError || error.name === "ValidationError") {
     const err = Object.values(error.errors).map((e) => e.message);
     return err;
   } else if (error.code === 11000) {

@@ -1,11 +1,8 @@
 const router = require('express').Router();
-const movieManager = require('../managers/movieManager.js')
-
 
 router.get('/', async (req, res) => {
   res.render('home'); 
 });
-
 
 
 // TODO: FIX
