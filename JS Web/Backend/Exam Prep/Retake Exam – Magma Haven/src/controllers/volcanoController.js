@@ -63,16 +63,17 @@ router.get('/details/:volcanoId', async (req, res) => {
 
   // check if user is logged in
   let isLoggedIn = false;
-  if (req.user){
+  if (req.user && !isOwner){
     isLoggedIn = true;
   }
 
   // check if user has voted already
   let hasVoted = false;
-  if(req.user){
+  if(req.user && !isOwner){
     const id = req.user._id;
     hasVoted = id === volcano.voteList?.toString();
   }
+
 
   const votes = volcano.voteList.length;
   res.render('volcanoes/details', { ...volcano, isOwner, isLoggedIn, hasVoted, votes: Number(votes) });
