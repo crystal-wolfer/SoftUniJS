@@ -33,7 +33,7 @@ router.post('/create', isAuth, async (req, res) => {
    });
 
   //TODO: update to /volcanoes
-  res.redirect('/');
+  res.redirect('/volcanoes');
   } catch (error) {
     const err = getErrorMessages(error);
     const options = generateOptions(typeVolcano)
@@ -80,51 +80,65 @@ router.get('/details/:volcanoId', async (req, res) => {
 }); 
 
 
-// DELETE MOVIE
+// DELETE VOLCANO
+
 router.get('/details/:volcanoId/delete', isAuth, async (req, res) => {
   const {volcanoId} = req.params;
-  const volcano = await volcanoManager.getVolcano(volcanoId);
-  const options = generateRating(volcano.rating)
-
-  res.render('volcanoes/delete', {volcano, options})
-})
-
-router.post('/details/:volcanoId/delete', isAuth, async (req, res) => {
-  const {volcanoId} = req.params;
-  await volcanoManager.deleteMovie(volcanoId);
-  res.redirect('/');
+  await volcanoManager.deleteVolcano(volcanoId);
+  res.redirect('/volcanoes');
 });
 
 
-// EDIT MOVIE
+// EDIT VOLCANO
 router.get('/details/:volcanoId/edit', isAuth, async (req, res) => {
   const {volcanoId} = req.params;
   const volcano = await volcanoManager.getVolcano(volcanoId);
-  const options = generateRating(volcano.rating)
+  const volcanoType = volcano.typeVolcano
+  
+  let options
+  if (!volcanoType) {
+  options = generateOptions();
+  } else {
+  options = generateOptions(volcanoType);
+  }
 
-  res.render('volcanoes/edit', {volcano, options})
+  res.render('volcanoes/edit', { volcano, options })
 });
 
 router.post('/details/:volcanoId/edit', isAuth, async (req, res) => {
   const {volcanoId} = req.params;
   const owner = req.user._id;
-  const { title,  genre,  director,  year,  imageUrl,  rating,  description } = req.body;
-  const stars = '★'.repeat(Number(rating));
-  
-
-  await volcanoManager.editMovie(volcanoId,{ 
-    title,  
-    genre,  
-    director,  
-    year,  
+  const {
+    name,  
+    location,  
+    elevation,  
+    lastEruption,  
     imageUrl,  
-    rating: Number(rating), 
-    stars,  
+    typeVolcano,  
+    description 
+    } = req.body;
+  
+  
+  try {
+    await volcanoManager.editVolcano(volcanoId,{ 
+    name,  
+    location,  
+    elevation,  
+    lastEruption,  
+    imageUrl,  
+    typeVolcano,  
     description,
-    owner: req.user._id,  
+    owner
    });
 
+
   res.redirect(`/volcanoes/details/${volcanoId}`)
+  } catch (error) {
+    const err = getErrorMessages(error);
+    const options = generateOptions(typeVolcano)
+    res.render('volcanoes/edit', {errorMessages: err, name, location, elevation, lastEruption, imageUrl, typeVolcano, description, options})
+  }
+
 })
 
 // VOTE FOR VOLCANO

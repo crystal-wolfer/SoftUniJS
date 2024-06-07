@@ -22,18 +22,17 @@ exports.voteForVolcano = async (volcanoId, userId) => {
   return volcano.save();
 }
 
-// TODO: Remove if not needed
-// exports.getVolcanoWithCast = (id) => {
-//   return Volcano.findById(id).populate('cast').lean(); //populate is integrated method that automatically poopulates all the data from the cast table it's better to segrerate them
-// }
 
-// TODO: Remove if not needed
-// exports.addCast = async (castId, volcanoId) =>{
-//   const volcano = await Volcano.findById(volcanoId);
-//   volcano.cast.push(castId);
+exports.deleteVolcano = async (volcanoId) => {
+  await Volcano.findByIdAndDelete(volcanoId);
+  return;
+};
 
-//   return volcano.save();
-// }
+exports.editVolcano = async (volcanoId, volcanoData) => {
+  await Volcano.validate(volcanoData);
+  await Volcano.findByIdAndUpdate(volcanoId, volcanoData);
+  return;
+};
 
 // TODO: This needs to be reworked
 // exports.search = async (search, genre, year) => {
@@ -57,13 +56,3 @@ exports.voteForVolcano = async (volcanoId, userId) => {
 
 //   return volcanos;
 // };
-
-exports.deleteVolcano = async (volcanoId) => {
-  await Volcano.findByIdAndDelete(volcanoId);
-  return;
-};
-
-exports.editVolcano = async (volcanoId, volcanoData) => {
-  await Volcano.findByIdAndUpdate(volcanoId, volcanoData);
-  return;
-};
