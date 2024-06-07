@@ -71,9 +71,9 @@ router.get('/details/:volcanoId', async (req, res) => {
   let hasVoted = false;
   if(req.user && !isOwner){
     const id = req.user._id;
-    hasVoted = id === volcano.voteList?.toString();
-  }
 
+    hasVoted = volcano.voteList.toString().includes(id);
+  }
 
   const votes = volcano.voteList.length;
   res.render('volcanoes/details', { ...volcano, isOwner, isLoggedIn, hasVoted, votes: Number(votes) });
