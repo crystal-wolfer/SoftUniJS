@@ -6,8 +6,8 @@ const { isAuth } = require('../middlewares/authMiddleware.js');
 
 // ALL VOLCANOS
 router.get('/', async(req, res) => {
-  await volcanoManager.getAllVolcanos();
-  res.render('volcanoes/catalog');
+  const volcanos = await volcanoManager.getAllVolcanos();
+  res.render('volcanoes/catalog', {volcanos});
 }) 
 
 // CREATE VOLCANO

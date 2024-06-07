@@ -33,3 +33,7 @@
   4. Update the controller
   5. Add isAuth where needed to safeguard server req
   6. Update the router and the routes
+
+## Catalog Page
+  1. Adapt the controller to have a request
+  2. Update the html to hbs the partial
