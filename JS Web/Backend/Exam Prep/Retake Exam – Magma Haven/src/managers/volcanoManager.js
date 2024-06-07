@@ -16,6 +16,12 @@ exports.getVolcano = async (id) => {
   return volcano;
 };
 
+exports.voteForVolcano = async (volcanoId, userId) => {
+  const volcano = await Volcano.findById(volcanoId);
+  volcano.voteList.push(userId);
+  return volcano.save();
+}
+
 // TODO: Remove if not needed
 // exports.getVolcanoWithCast = (id) => {
 //   return Volcano.findById(id).populate('cast').lean(); //populate is integrated method that automatically poopulates all the data from the cast table it's better to segrerate them

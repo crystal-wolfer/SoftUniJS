@@ -44,10 +44,10 @@ router.post('/create', isAuth, async (req, res) => {
 });
 
 
-// GET MOVIE BY ID - DETAILS PAGE
+// GET VOLCANO BY ID - DETAILS PAGE
 router.get('/details/:volcanoId', async (req, res) => {
   const {volcanoId} = req.params
-  const volcano = await volcanoManager.getVolcanoWithCast(volcanoId);
+  const volcano = await volcanoManager.getVolcano(volcanoId);
     
   //check if there is a valid ID if not redirecting to 404
   if (!volcano) {
@@ -61,25 +61,22 @@ router.get('/details/:volcanoId', async (req, res) => {
     isOwner = req.user._id === volcano.owner?.toString(); // because we have ObjectId in the owner so we need toString() ? is needed for the cubes without owners in the DB this will return true or false
   }
 
-  res.render('volcanoes/details', { ...volcano, isOwner});
+  // check if user is logged in
+  let isLoggedIn = false;
+  if (req.user){
+    isLoggedIn = true;
+  }
+
+  // check if user has voted already
+  let hasVoted = false;
+  if(req.user){
+    const id = req.user._id;
+    hasVoted = id === volcano.voteList?.toString();
+  }
+
+  const votes = volcano.voteList.length;
+  res.render('volcanoes/details', { ...volcano, isOwner, isLoggedIn, hasVoted, votes: Number(votes) });
 }); 
-
-// ADD CAST TO MOVIE
-router.get('/details/:volcanoId/add-cast', isAuth, async (req, res) =>{
-  const {volcanoId} = req.params
-  const volcano = await volcanoManager.getVolcano(volcanoId);
-  const cast = await castManager.getNonAttachedCast(volcano.cast); 
-
-  res.render('./cast/attach', {volcano, cast});
-});
-
-router.post('/details/:volcanoId/add-cast', isAuth, async (req,res) => {
-  const {cast: castId} = req.body
-  const {volcanoId} = req.params 
-  await volcanoManager.addCast(castId,volcanoId);
-
-  res.redirect(`/volcanoes/details/${volcanoId}`)
-});
 
 
 // DELETE MOVIE
@@ -128,6 +125,15 @@ router.post('/details/:volcanoId/edit', isAuth, async (req, res) => {
 
   res.redirect(`/volcanoes/details/${volcanoId}`)
 })
+
+// VOTE FOR VOLCANO
+router.get('/details/:volcanoId/vote', isAuth, async (req, res) => {
+  const {volcanoId} = req.params
+  const userId = req.user._id;
+
+  await volcanoManager.voteForVolcano(volcanoId, userId)
+  res.redirect(`/volcanoes/details/${volcanoId}`)
+});
 
 
 module.exports = router
