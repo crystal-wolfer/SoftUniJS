@@ -11,13 +11,13 @@ router.get('/', async(req, res) => {
 }) 
 
 // CREATE VOLCANO
-router.get('/create', isAuth, async (req, res) => {
+router.get('/create', isAuth, async (req, res) => { 
   await volcanoManager.getAllVolcanos();
   const options = generateOptions();
   res.render('volcanoes/create', {options});
 });
 
-router.post('/create', isAuth, async (req, res) => {
+router.post('/create',  async (req, res) => {
   const { name,  location,  elevation,  lastEruption,  imageUrl,  typeVolcano,  description } = req.body;
 
   try {
@@ -48,26 +48,20 @@ router.post('/create', isAuth, async (req, res) => {
 router.get('/details/:volcanoId', async (req, res) => {
   const {volcanoId} = req.params
   const volcano = await volcanoManager.getVolcano(volcanoId);
-    
+  const isOwner = res.locals.isOwner;
+  let isLoggedIn = res.locals.isLoggedIn;
+
   //check if there is a valid ID if not redirecting to 404
   if (!volcano) {
-    res.redirect('/404');
+    res.redirect('/404'); 
     return;
   }
 
-  // check if the owner of the volcano making the request
-  let isOwner = false;
-  if (req.user) {
-    isOwner = req.user._id === volcano.owner?.toString(); // because we have ObjectId in the owner so we need toString() ? is needed for the cubes without owners in the DB this will return true or false
+  if(isOwner){
+    isLoggedIn = false;
   }
 
-  // check if user is logged in
-  let isLoggedIn = false;
-  if (req.user && !isOwner){
-    isLoggedIn = true;
-  }
-
-  // check if user has voted already
+  // check if user has voted already and not owner
   let hasVoted = false;
   if(req.user && !isOwner){
     const id = req.user._id;
@@ -83,6 +77,12 @@ router.get('/details/:volcanoId', async (req, res) => {
 // DELETE VOLCANO
 
 router.get('/details/:volcanoId/delete', isAuth, async (req, res) => {
+  //check if user is owner if not redirecting to 404
+  if (!res.locals.isOwner) {
+    res.redirect('/404'); 
+    return;
+  }
+
   const {volcanoId} = req.params;
   await volcanoManager.deleteVolcano(volcanoId);
   res.redirect('/volcanoes');
@@ -91,10 +91,16 @@ router.get('/details/:volcanoId/delete', isAuth, async (req, res) => {
 
 // EDIT VOLCANO
 router.get('/details/:volcanoId/edit', isAuth, async (req, res) => {
+  //check if user is owner if not redirecting to 404
+  if (!res.locals.isOwner) {
+    res.redirect('/404'); 
+    return;
+  }
+
   const {volcanoId} = req.params;
   const volcano = await volcanoManager.getVolcano(volcanoId);
   const volcanoType = volcano.typeVolcano
-  
+
   let options
   if (!volcanoType) {
   options = generateOptions();

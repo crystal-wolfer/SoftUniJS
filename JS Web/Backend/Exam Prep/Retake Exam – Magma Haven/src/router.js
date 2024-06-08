@@ -3,13 +3,11 @@ const router = require('express').Router();
 // TODO: Update this
 const homeController = require('./controllers/homeController.js')
 const volcanoController = require('./controllers/volcanoController.js')
-// const castController = require('./controllers/castController.js')
 const userController = require('./controllers/userController.js')
 
 // TODO: Update this
 router.use(homeController);
 router.use('/volcanoes', volcanoController);
-// router.use('/cast', castController);
 router.use('/users', userController);
 
 

@@ -37,3 +37,25 @@
 ## Catalog Page
   1. Adapt the controller to have a request
   2. Update the html to hbs the partial
+
+## Details Page
+  1. Update the controller
+  2. Update the manger if needed
+
+## Vote functionality
+  1. Update the html and hbs
+  2. Create validators for the hbs conditionals 
+  3. Add the conditionals to hbs use nested ifs
+
+## Edit page
+  1. Update the html and hbs
+  2. Update the controller and the options generation
+
+## Delete page
+  1. Update the controller
+
+## Search page
+  1. Update the html and hbs
+  2. Update the controller
+
+## Test the route saveguards
