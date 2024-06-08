@@ -7,6 +7,7 @@
   4. Add new resources to the views and public
   5. Change main and home pages
   6. Change PORT if needed to 3000
+  7. Change project name in package.json
 
 ## Home Page
   1. Make the auth navigation for guests and logged in users

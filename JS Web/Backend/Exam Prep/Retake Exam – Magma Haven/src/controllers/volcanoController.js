@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { getErrorMessages, generateOptions } = require('../lib/utils.js');
 const volcanoManager = require('../managers/volcanoManager.js')
 const { isAuth } = require('../middlewares/authMiddleware.js');
-// const { generateRating } = require('../lib/utils.js');
 
 // ALL VOLCANOS
 router.get('/', async(req, res) => {

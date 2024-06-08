@@ -35,24 +35,19 @@ exports.editVolcano = async (volcanoId, volcanoData) => {
 };
 
 // TODO: This needs to be reworked
-// exports.search = async (search, genre, year) => {
-//   let volcanos = await Volcano.find().lean();
+exports.search = async (name, typeVolcano) => {
+  let volcanos = await Volcano.find().lean();
 
-//   if (search) {
-//     volcanos = volcanos.filter((m) =>
-//       m.name.toLowerCase().includes(search.toLowerCase())
-//     );
-//   }
+  if (name) {
+    volcanos = volcanos.filter((m) =>
+      m.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
 
-//   if (genre) {
-//     volcanos = volcanos.filter((m) =>
-//       m.genre.toLowerCase().includes(genre.toLowerCase())
-//     );
-//   }
-
-//   if (year) {
-//     volcanos = volcanos.filter((m) => Number(m.year) === Number(year));
-//   }
-
-//   return volcanos;
-// };
+  if (typeVolcano) {
+    volcanos = volcanos.filter((m) =>
+      m.typeVolcano.toLowerCase().includes(typeVolcano.toLowerCase())
+    );
+  }
+  return volcanos;
+};
