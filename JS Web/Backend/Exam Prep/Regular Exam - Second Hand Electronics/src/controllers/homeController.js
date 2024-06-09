@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const stoneManager = require("../managers/stoneManager.js");
+const stoneManager = require("../managers/electronicsManager.js");
 
 
 router.get("/", async (req, res) => {

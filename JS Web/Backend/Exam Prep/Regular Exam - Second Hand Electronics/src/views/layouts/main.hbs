@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Second Hand Electronics</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
             containers.forEach((container, index) => {
                 const spacing = 8; // spacing in pixels
                 const initialTop = 13; // initial top percentage
-                const topOffset = initialTop + (index * 16) + '%';
+                const topOffset = initialTop + (index * 12) + '%';
                 container.style.top = `calc(${topOffset} + ${spacing}px)`;
             });
         });

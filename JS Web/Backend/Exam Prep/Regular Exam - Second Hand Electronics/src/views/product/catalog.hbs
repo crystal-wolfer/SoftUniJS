@@ -1,0 +1,15 @@
+        <section id="viewCatalog" class="background-img">
+            <!--If there are one or more electronics-->
+            <div class="added-electronics">
+              {{#each products}}
+              {{>catalogTempl}}
+              {{/each}}
+            </div>
+
+            <!--If there are no electronics in catalog yet-->
+          {{#if empty}}
+            <div class="guest">
+                There are no electronics found...
+            </div>
+          {{/if}}
+        </section>
