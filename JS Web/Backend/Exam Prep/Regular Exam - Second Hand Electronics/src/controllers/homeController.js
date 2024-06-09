@@ -3,13 +3,12 @@ const stoneManager = require("../managers/stoneManager.js");
 
 
 router.get("/", async (req, res) => {
-  const stones = await stoneManager.getAllStones();
-  res.render("home", {stones});
+  res.render("home");
 });
 
 // TODO: FIX
 router.get("/search", async (req, res) => {
-  const stones = await stoneManager.getAllStones();
+  const stones = await stoneManager.getAll();
   let empty = false;
   if (stones.length === 0) {
     empty = true;

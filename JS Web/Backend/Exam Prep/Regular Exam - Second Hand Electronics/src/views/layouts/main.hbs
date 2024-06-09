@@ -1,55 +1,47 @@
+<!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/styles.css" />
-    <title>Home Page</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Second Hand Electronics</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 
-  <body>
-      {{#each errorMessages}}
+<body>
+  {{#each errorMessages}}
     <div>
-      <div class="errorContainer">
-        <p>{{this}}</p>
-      </div>
+        <div class="errorContainer">
+            <p>{{this}}</</p>
+        </div>
     </div>
+  {{/each}}
 
-    <div id="wrapper">
-    {{/each}}
-      <header>
-        <!-- Navigation -->
+    <div id="container">
+
         <nav>
-          <div>
-            <a href="/">Home</a>
-            <a href="/stones/dashboard">Dashboard</a>
-            <a href="/search">Search</a>
-          </div>
+            <ul>
+                <!--For all users-->
+                <li><a href="/">Home</a></li>
+                <li><a href="/products/catalog">Catalog</a></li>
+                <!--For loggin users-->
+                {{#if isAuthenticated}}
+                <li><a href="/products/create">Create Offer</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+                <!--For guest user-->
+                {{else}}
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register">Register</a></li>
+                {{/if}}
 
-          <!-- Logged-in users -->
-           {{#if isAuthenticated}}
-          <div class="user">
-            <a href="/stones/create">Add Stones</a>
-            <a href="/users/logout">Logout</a>
-          </div>
-
-          <!-- Guest users -->
-            {{else}}
-          <div class="guest">
-            <a href="/users/login">Login</a>
-            <a href="/users/register">Register</a>
-            {{/if}}
-          </div>
+            </ul>
         </nav>
-      </header>
-      {{! This is where all other pages are rendered }}
+
       {{{body}}}
-      <footer>
-        <p>@EarthTreasureVaul</p>
-      </footer>
-    </div>
-{{!-- Script that adds spacing to the error messages --}}
+
+        <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
+
+        {{!-- Script that adds spacing to the error messages --}}
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const containers = document.querySelectorAll('.errorContainer');
@@ -61,7 +53,9 @@
             });
         });
     </script>
-  </body>
+    </div>
 
+</body>
 
 </html>
+
