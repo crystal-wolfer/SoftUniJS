@@ -1,0 +1,29 @@
+    <main>
+        <section class="volcano-search">
+            <h1>Search</h1>
+
+            <form class="search-form" method="POST">
+                <input type="text" class="search-volcano" name="name" value="{{name}}" placeholder="Search by Name...">
+                <select id="type" name="typeVolcano">
+                    {{#each options}}
+                        <option value="{{value}}" {{#if selected}}selected{{/if}} >{{title}}</option>
+                    {{/each}}
+                </select>
+                <button type="submit" class="btn-search">Search</button>
+            </form>
+
+            <div class="search-result">
+                <div class="search-list">
+                {{#each volcanos }}
+                    {{>searchResultTempl}}
+                {{else}}
+                    <div class="no-match">
+                        <p>No match was found!</p>
+                    </div>
+                {{/each }}
+                </div>
+            </div>
+
+        </section>
+    </main>
+5a
