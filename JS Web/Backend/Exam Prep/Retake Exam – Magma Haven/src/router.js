@@ -11,7 +11,7 @@ router.use('/volcanoes', volcanoController);
 router.use('/users', userController);
 
 
-// every non-existent endpoint will redirect to the 404 endpoint
+// every non-existent endpoint will redirect to the 404 page
 router.get('*', (req, res) => {
   res.redirect('/404')
 }) 
