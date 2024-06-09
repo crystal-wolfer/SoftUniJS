@@ -1,13 +1,13 @@
 
-    <div class="volcano">
-      <div class="volcano-img">
-        <img src="{{imageUrl}}" />
-      </div>
-      <div class="volcano-info">
-        <h1>{{name}}</h1>
-        <p><span>Location: </span>{{location}}</p>
-        <p><span>Volcano Type: </span>{{typeVolcano}}</p>
-      </div>
-
-      <a href="volcanoes/details/{{_id}}" class="btn-details">Details</a>
-    </div>
+<!-- Display a li with information about every post (if any)-->
+<li class="card">
+  <img src="{{imageUrl}}" />
+  <p>
+    <strong>Name: </strong><span class="name">{{name}}</span>
+  </p>
+  <p>
+    <strong>Category: </strong><span class="category">{{category}}</span>
+  </p>
+  <p><strong>Formula:</strong><span class="formula">{{formula}}</span></p>
+  <a class="details-btn" href="/stones/details/{{_id}}">Details</a>
+</li>

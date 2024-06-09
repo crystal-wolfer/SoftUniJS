@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const stoneManager = require("../managers/stoneManager.js");
-const { getErrorMessages, generateOptions } = require('../lib/utils.js');
 
 
 router.get("/", async (req, res) => {
@@ -10,22 +9,23 @@ router.get("/", async (req, res) => {
 
 // TODO: FIX
 router.get("/search", async (req, res) => {
-  const options = generateOptions();
-  res.render("search", {options});
+  const stones = await stoneManager.getAllStones();
+  let empty = false;
+  if (stones.length === 0) {
+    empty = true;
+  }
+  res.render("search", {stones, empty});
 });
 
 router.post("/search", async (req, res) => {
-  const { name, typeVolcano } = req.body;
-  const volcanos = await volcanoManager.search(name, typeVolcano);
-
-  let options;
-  if (!typeVolcano) {
-    options = generateOptions();
-  } else {
-    options = generateOptions(typeVolcano);
+  const { name } = req.body;
+  const stones = await stoneManager.search(name); 
+  let empty = false;
+  if (stones.length === 0) {
+    empty = true;
   }
 
-  res.render("search", { volcanos, name, typeVolcano, options });
+  res.render("search", { stones, name, empty });
 });
 
 // setting up every wrong endpoint to redirect to a 404 endpoint
