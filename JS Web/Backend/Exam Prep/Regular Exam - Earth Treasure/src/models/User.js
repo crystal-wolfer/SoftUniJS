@@ -3,12 +3,6 @@ const bcrypt = require("bcrypt");
 
 // Create the User schema
 const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    minLength: [2, "Username must be at least 2 characters!"],
-    required: [true, "Email field is required!"],
-  },
-
   email: {
     type: String,
     minLength: [10, "Email must be at least 10 characters!"],
