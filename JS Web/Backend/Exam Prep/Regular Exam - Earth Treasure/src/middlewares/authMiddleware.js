@@ -1,6 +1,6 @@
 const jwt = require('../lib/jwt.js');
 const SECRET = "Morty"
-const volcanoManager = require('../managers/volcanoManager.js')
+const volcanoManager = require('../managers/stoneManager.js')
 
 
 exports.auth = async (req, res, next) => {

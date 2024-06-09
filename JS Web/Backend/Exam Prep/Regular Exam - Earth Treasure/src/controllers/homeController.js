@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const volcanoManager = require("../managers/volcanoManager.js");
+const volcanoManager = require("../managers/stoneManager.js");
 const { getErrorMessages, generateOptions } = require('../lib/utils.js');
 
 
