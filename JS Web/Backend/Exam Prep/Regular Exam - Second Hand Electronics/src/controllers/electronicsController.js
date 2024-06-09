@@ -3,7 +3,7 @@ const { getErrorMessages } = require("../lib/utils.js");
 const electroncsManager = require("../managers/electronicsManager.js");
 const { isAuth } = require("../middlewares/authMiddleware.js");
 
-// ALL 
+// ALL
 router.get("/catalog", async (req, res) => {
   const products = await electroncsManager.getAll();
   let empty = false;
@@ -13,14 +13,22 @@ router.get("/catalog", async (req, res) => {
   res.render("product/catalog", { products, empty });
 });
 
-// CREATE 
+// CREATE
 router.get("/create", isAuth, async (req, res) => {
   res.render("product/create");
 });
 
 router.post("/create", async (req, res) => {
-  const { name, type, production, exploitation, damages, imageUrl, price, description } =
-    req.body;
+  const {
+    name,
+    type,
+    production,
+    exploitation,
+    damages,
+    imageUrl,
+    price,
+    description,
+  } = req.body;
 
   try {
     await electroncsManager.create({
@@ -79,10 +87,15 @@ router.get("/details/:electronicId", async (req, res) => {
     hasBought = electronic.byingList.toString().includes(id);
   }
 
-  res.render("product/details", { ...electronic, isOwner, isLoggedIn, hasBought });
+  res.render("product/details", {
+    ...electronic,
+    isOwner,
+    isLoggedIn,
+    hasBought,
+  });
 });
 
-// DELETE 
+// DELETE
 
 router.get("/details/:electronicId/delete", isAuth, async (req, res) => {
   //check if user is owner if not redirecting to 404
@@ -93,10 +106,10 @@ router.get("/details/:electronicId/delete", isAuth, async (req, res) => {
 
   const { electronicId } = req.params;
   await electroncsManager.delete(electronicId);
-  res.redirect("/electronics/dashboard");
+  res.redirect("/products/catalog");
 });
 
-// EDIT 
+// EDIT
 router.get("/details/:electronicId/edit", isAuth, async (req, res) => {
   //check if user is owner if not redirecting to 404
   if (!res.locals.isOwner) {
@@ -106,50 +119,54 @@ router.get("/details/:electronicId/edit", isAuth, async (req, res) => {
 
   const { electronicId } = req.params;
   const electronic = await electroncsManager.getOne(electronicId);
-  res.render("product/edit", {...electronic});
+  res.render("product/edit", { ...electronic });
 });
 
 router.post("/details/:electronicId/edit", isAuth, async (req, res) => {
   const { electronicId } = req.params;
   const owner = req.user._id;
-  const { 
-    name, 
-    category, 
-    color, 
-    imageUrl, 
-    location, 
-    formula, 
-    description } = req.body;
+  const {
+    name,
+    type,
+    production,
+    exploitation,
+    damages,
+    imageUrl,
+    price,
+    description,
+  } = req.body;
 
   try {
     await electroncsManager.edit(electronicId, {
       name,
-      category,
-      color,
+      type,
+      production,
+      exploitation,
+      damages,
       imageUrl,
-      location,
-      formula,
+      price,
       description,
       owner,
     });
 
-    res.redirect(`/electronics/details/${electronicId}`);
+    res.redirect(`/products/details/${electronicId}`);
   } catch (error) {
     const err = getErrorMessages(error);
     res.render("product/edit", {
       errorMessages: err,
       name,
-      category,
-      color,
+      type,
+      production,
+      exploitation,
+      damages,
       imageUrl,
-      location,
-      formula,
+      price,
       description,
     });
   }
 });
 
-// BUY 
+// BUY
 router.get("/details/:electronicId/buy", isAuth, async (req, res) => {
   const { electronicId } = req.params;
   const userId = req.user._id;
