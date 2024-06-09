@@ -36,7 +36,7 @@ exports.edit = async (electronicId, electronicData) => {
 };
 
 // TODO: This needs to be reworked
-exports.search = async (name, typeElectronic) => {
+exports.search = async (name, type) => {
   let electronics = await Electronic.find().lean();
 
   if (name) {
@@ -45,9 +45,9 @@ exports.search = async (name, typeElectronic) => {
     );
   }
 
-  if (typeElectronic) {
+  if (type) {
     electronics = electronics.filter((m) =>
-      m.typeElectronic.toLowerCase().includes(typeElectronic.toLowerCase())
+      m.type.toLowerCase().includes(type.toLowerCase())
     );
   }
   return electronics;
