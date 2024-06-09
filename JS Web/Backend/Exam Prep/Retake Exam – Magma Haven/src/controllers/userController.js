@@ -48,6 +48,11 @@ router.post("/login", async (req, res) => {
 
 // LOGOUT
 router.get("/logout", (req, res) => {
+
+  if (!req.user){
+    return res.redirect('/404');
+  }
+  
   res.clearCookie("userAuth");
   return res.redirect("/");
 });

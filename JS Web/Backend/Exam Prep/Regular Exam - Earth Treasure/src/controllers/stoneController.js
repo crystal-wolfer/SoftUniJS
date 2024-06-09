@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { getErrorMessages, generateOptions } = require("../lib/utils.js");
+const { getErrorMessages } = require("../lib/utils.js");
 const stoneManager = require("../managers/stoneManager.js");
 const { isAuth } = require("../middlewares/authMiddleware.js");
 

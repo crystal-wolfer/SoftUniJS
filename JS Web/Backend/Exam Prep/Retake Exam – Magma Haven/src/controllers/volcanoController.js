@@ -47,7 +47,7 @@ router.post('/create',  async (req, res) => {
 router.get('/details/:volcanoId', isAuth, async (req, res) => {
   const {volcanoId} = req.params
   const volcano = await volcanoManager.getVolcano(volcanoId);
-  const isOwner = res.locals.isOwner;
+  let isOwner = false;
   let isLoggedIn = res.locals.isLoggedIn;
 
   //check if there is a valid ID if not redirecting to 404
@@ -56,7 +56,8 @@ router.get('/details/:volcanoId', isAuth, async (req, res) => {
     return;
   }
 
-  if(isOwner){
+  if (req.user && req.user._id === stone.owner?.toString()) {
+    isOwner = true;
     isLoggedIn = false;
   }
 
