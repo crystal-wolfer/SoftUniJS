@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const electronicsManager = require("../managers/electronicsManager.js");
+const { isAuth } = require("../middlewares/authMiddleware.js")
 
 
 router.get("/", async (req, res) => {
@@ -7,7 +8,7 @@ router.get("/", async (req, res) => {
 });
 
 // TODO: FIX
-router.get("/search", async (req, res) => {
+router.get("/search", isAuth, async (req, res) => {
   const products = await electronicsManager.getAll();
   let empty = false;
   if (products.length === 0) {
@@ -16,7 +17,7 @@ router.get("/search", async (req, res) => {
   res.render("search", {products, empty});
 });
 
-router.post("/search", async (req, res) => {
+router.post("/search", isAuth, async (req, res) => {
   const { name, type } = req.body;
   const electronics = await electronicsManager.search(name, type); 
   let empty = false;
