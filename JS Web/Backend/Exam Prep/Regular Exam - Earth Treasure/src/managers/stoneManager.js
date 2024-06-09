@@ -16,9 +16,9 @@ exports.getStone = async (id) => {
   return stone;
 };
 
-exports.voteForStone = async (stoneId, userId) => {
+exports.likeStone = async (stoneId, userId) => {
   const stone = await Stone.findById(stoneId);
-  stone.voteList.push(userId);
+  stone.likedList.push(userId);
   return stone.save();
 }
 

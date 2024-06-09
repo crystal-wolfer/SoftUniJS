@@ -1,10 +1,11 @@
 const router = require("express").Router();
-const volcanoManager = require("../managers/stoneManager.js");
+const stoneManager = require("../managers/stoneManager.js");
 const { getErrorMessages, generateOptions } = require('../lib/utils.js');
 
 
 router.get("/", async (req, res) => {
-  res.render("home");
+  const stones = await stoneManager.getAllStones();
+  res.render("home", {stones});
 });
 
 // TODO: FIX

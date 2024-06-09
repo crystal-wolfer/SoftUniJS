@@ -44,7 +44,7 @@ router.post('/create',  async (req, res) => {
 
 
 // GET VOLCANO BY ID - DETAILS PAGE
-router.get('/details/:volcanoId', async (req, res) => {
+router.get('/details/:volcanoId', isAuth, async (req, res) => {
   const {volcanoId} = req.params
   const volcano = await volcanoManager.getVolcano(volcanoId);
   const isOwner = res.locals.isOwner;

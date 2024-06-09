@@ -1,6 +1,6 @@
 const jwt = require('../lib/jwt.js');
 const SECRET = "Morty"
-const volcanoManager = require('../managers/stoneManager.js')
+const stoneManager = require('../managers/stoneManager.js')
 
 
 exports.auth = async (req, res, next) => {
@@ -22,11 +22,13 @@ exports.auth = async (req, res, next) => {
     }
 
   } else{
+    res.locals.isLoggedIn = false;
+    res.locals.isOwner = false;
     next();
   }  
 };
 
-
+// route guard
 exports.isAuth = async (req, res, next) => {
   let isLoggedIn = false;
   let isOwner = false;
@@ -42,10 +44,10 @@ exports.isAuth = async (req, res, next) => {
 
   // Check if user is Owner
   if (isLoggedIn && params != 0) {
-    const {volcanoId} = req.params
-    const volcano = await volcanoManager.getVolcano(volcanoId);
+    const {stoneId} = req.params
+    const stone = await stoneManager.getStone(stoneId);
 
-    if (req.user._id === volcano.owner?.toString()) {
+    if (req.user._id === stone.owner?.toString()) {
       isOwner = true;
     }
   } 
