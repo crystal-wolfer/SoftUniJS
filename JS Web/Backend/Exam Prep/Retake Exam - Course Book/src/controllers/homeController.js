@@ -17,7 +17,9 @@ router.get("/my-profile", async (req, res) => {
   const email = req.user.email
   const createdCourses = await courseManager.createdCourses(id);
   const signedUpCourses = await courseManager.signedUpCourses(id);
-  res.render("profile", {createdCourses, id, email, signedUpCourses});
+  const createdCourseCount = createdCourses.length.toString();
+  const signedUpCourseCount = signedUpCourses.length.toString()
+  res.render("profile", {createdCourses, id, email, signedUpCourses, createdCourseCount, signedUpCourseCount});
 });
 
 
