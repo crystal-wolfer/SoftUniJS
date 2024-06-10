@@ -2,12 +2,12 @@ const router = require('express').Router();
 
 // TODO: Update this
 const homeController = require('./controllers/homeController.js')
-const stoneController = require('./controllers/stoneController.js')
+// const stoneController = require('./controllers/stoneController.js')
 const userController = require('./controllers/userController.js');
 
 // TODO: Update this
 router.use(homeController);
-router.use('/stones', stoneController);
+// router.use('/stones', stoneController);
 router.use('/users', userController);
 
 

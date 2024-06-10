@@ -23,7 +23,7 @@
 
     <div class="navigation">
         <nav>
-            <img src="./images/logo.png">
+            <img src="/images/logo.png">
             <ul>
                 <!-- Guest users and Logged users -->
                 <li><a href="/">Home</a></li>
@@ -55,7 +55,7 @@
             containers.forEach((container, index) => {
                 const spacing = 8; // spacing in pixels
                 const initialTop = 13; // initial top percentage
-                const topOffset = initialTop + (index * 16) + '%';
+                const topOffset = initialTop + (index * 10) + '%';
                 container.style.top = `calc(${topOffset} + ${spacing}px)`;
             });
         });
