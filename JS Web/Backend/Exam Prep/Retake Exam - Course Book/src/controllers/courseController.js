@@ -52,11 +52,25 @@ router.post("/create", async (req, res) => {
 // GET COURSE BY ID - DETAILS PAGE
 router.get("/details/:courseId", async (req, res) => {
   const { courseId } = req.params;
-  const course = await courseManager.getStone(courseId);
+  const course = await courseManager.getOne(courseId);
   let isOwner = false;
   let isLoggedIn = res.locals.isLoggedIn;
+  
+  const getOwner = await courseManager.getEmails(courseId, "owner");
+  const ownerEmail = getOwner.owner.email
+  const signedUp = await courseManager.getEmails(courseId, "signUpList");
+  let userEmails
+  let noSingnUps = true
 
-  //check if there is a valid ID if not redirecting to 404
+  if (signedUp.signUpList.length > 0) {
+    userEmails = signedUp.signUpList.map(email => email);
+  } else  if(signedUp.signUpList.length === 0) {
+    noSingnUps = false
+  } else{
+    userEmails = signedUp.signUpList[0];
+  }
+
+  // check if there is a valid ID if not redirecting to 404
   if (!course) {
     res.redirect("/404");
     return;
@@ -68,14 +82,16 @@ router.get("/details/:courseId", async (req, res) => {
   }
 
   // check if user has voted already and not owner
-  let hasLiked = false;
+  let hasSignedUp = false;
   if (req.user && !isOwner) {
     const id = req.user._id;
 
-    hasLiked = course.likedList.toString().includes(id);
+    hasSignedUp = course.signUpList.toString().includes(id);
   }
 
-  res.render("courses/details", { ...course, isOwner, isLoggedIn, hasLiked });
+
+
+  res.render("courses/details", { ...course, ownerEmail, isOwner, isLoggedIn, hasSignedUp, noSingnUps, userEmails  });
 });
 
 // DELETE COURSE
@@ -146,11 +162,11 @@ router.post("/details/:courseId/edit", isAuth, async (req, res) => {
 });
 
 // LIKE COURSE
-router.get("/details/:courseId/like", isAuth, async (req, res) => {
+router.get("/details/:courseId/signUp", isAuth, async (req, res) => {
   const { courseId } = req.params;
   const userId = req.user._id;
 
-  await courseManager.likeStone(courseId, userId);
+  await courseManager.signUp(courseId, userId);
   res.redirect(`/courses/details/${courseId}`);
 });
 

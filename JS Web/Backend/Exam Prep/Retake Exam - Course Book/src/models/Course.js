@@ -30,7 +30,7 @@ const courseSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: [true, "Price is required!"],
-    minLength: [, "Price must be a positive number!"],
+    min: [0, "Price must be a positive number!"],
   },
   createdAt: { 
     type: Date, 

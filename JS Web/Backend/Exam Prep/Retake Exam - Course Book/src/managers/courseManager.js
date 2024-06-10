@@ -21,6 +21,17 @@ exports.getLastThree = async () => {
   return courses;
 };
 
+//REMOVE IF NOT NEEDED - query that retrieves the last 3 entries from the database
+exports.getEmails = async (id, path) => {
+  const data = await Course.findById(id)
+    .populate({
+      path: path,
+      select:'email'
+    }).lean();
+
+  return data;
+};
+
 exports.getOne = async (id) => {
   const course = await Course.findById(id).lean();
   return course;
@@ -29,7 +40,7 @@ exports.getOne = async (id) => {
 // TODO: This needs to be renamed
 exports.signUp = async (courseId, userId) => {
   const course = await Course.findById(courseId);
-  course.byingList.push(userId);
+  course.signUpList.push(userId);
   return course.save();
 }
 

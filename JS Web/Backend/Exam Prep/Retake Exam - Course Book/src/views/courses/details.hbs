@@ -1,0 +1,50 @@
+    <main>
+        <div class="details-container">
+            <div class="details-container-image">
+                <img src="{{imageUrl}}">
+            </div>
+            <div class="details-container-info">
+                <h2>Title: {{title}}</h2>
+                <h3>Type: {{type}}</h3>
+                <h3>Certificate: {{certificate}}</h3>
+                <h3>Price: €{{price}}</h3>
+                <h3>By: {{ownerEmail}}</h3>
+                <!--If there are sign up users-->
+                {{#if noSingnUps}}
+                    <h4>Signed By: {{#each userEmails}}
+                    {{#if @first}}
+                    {{this.email}}
+                    {{else}}
+                        , {{this.email}}
+                    {{/if}}
+                    {{/each}}</h4>
+
+                {{else}}     
+                <!--If there are no sign up users-->
+                <h4>Nobody has signed in for this course yet</h4>
+                {{/if}}
+
+            </div>
+            <div class="details-container-content">
+                <p></p>
+            </div>
+            <div class="btn-container">
+                <!-- Only for registered user and creator of the course-->
+                {{#if isOwner}}
+                <a href="/courses/details/{{_id}}/edit">Edit</a>
+                <a href="/courses/details/{{_id}}/delete">Delete</a>
+                {{/if}}
+
+                <!-- logged in user who has not yet sign up for the course-->
+                {{#if isLoggedIn}}
+                    {{#if hasSignedUp}}
+                    <!-- logged in user who has already sign up for the course-->
+                        <p class="sign-up">You've already signed up for this course!</p>
+                    {{else}}
+                        <a href="/courses/details/{{_id}}/signUp">Sign up</a>
+                    {{/if}}
+                {{/if}}
+                
+            </div>
+        </div>
+    </main>
