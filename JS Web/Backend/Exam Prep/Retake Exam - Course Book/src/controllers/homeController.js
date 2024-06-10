@@ -1,14 +1,14 @@
 const router = require("express").Router();
-// const stoneManager = require("../managers/stoneManager.js");
+const courseManager = require("../managers/courseManager.js");
 
 
 router.get("/", async (req, res) => {
-  // const stones = await stoneManager.getAllStones();
+  const courses = await courseManager.getLastThree();
   let empty = true;
-  // if (stones.length === 0) {
-  //   empty = true;
-  // }
-  res.render("home", {empty});
+  if (courses.length === 0) {
+    empty = true;
+  }
+  res.render("home", { courses, empty });
 });
 
 // TODO: FIX
