@@ -3,7 +3,7 @@ const { getErrorMessages } = require("../lib/utils.js");
 const courseManager = require("../managers/courseManager.js");
 const { isAuth } = require("../middlewares/authMiddleware.js");
 
-// ALL STONES
+// ALL COURSES
 router.get("/", async (req, res) => {
   const courses = await courseManager.getAll();
   let empty = false;
@@ -13,45 +13,43 @@ router.get("/", async (req, res) => {
   res.render("courses/catalog", { courses, empty });
 });
 
-// CREATE STONE
+// CREATE COURSE
 router.get("/create", isAuth, async (req, res) => {
   res.render("courses/create");
 });
 
 router.post("/create", async (req, res) => {
-  const { name, category, color, imageUrl, location, formula, description } =
+  const { title, type, certificate, imageUrl, description, price } =
     req.body;
 
   try {
-    await courseManager.createStone({
-      name,
-      category,
-      color,
+    await courseManager.create({
+      title,
+      type,
+      certificate,
       imageUrl,
-      location,
-      formula,
       description,
+      price,
       owner: req.user._id,
     });
 
     //TODO: update to /courses
-    res.redirect("/courses/dashboard");
+    res.redirect("/courses");
   } catch (error) {
     const err = getErrorMessages(error);
     res.render("courses/create", {
       errorMessages: err,
-      name,
-      category,
-      color,
+      title,
+      type,
+      certificate,
       imageUrl,
-      location,
-      formula,
       description,
+      price,
     });
   }
 });
 
-// GET STONE BY ID - DETAILS PAGE
+// GET COURSE BY ID - DETAILS PAGE
 router.get("/details/:courseId", async (req, res) => {
   const { courseId } = req.params;
   const course = await courseManager.getStone(courseId);
@@ -80,7 +78,7 @@ router.get("/details/:courseId", async (req, res) => {
   res.render("courses/details", { ...course, isOwner, isLoggedIn, hasLiked });
 });
 
-// DELETE STONE
+// DELETE COURSE
 
 router.get("/details/:courseId/delete", isAuth, async (req, res) => {
   //check if user is owner if not redirecting to 404
@@ -94,7 +92,7 @@ router.get("/details/:courseId/delete", isAuth, async (req, res) => {
   res.redirect("/courses/dashboard");
 });
 
-// EDIT STONE
+// EDIT COURSE
 router.get("/details/:courseId/edit", isAuth, async (req, res) => {
   //check if user is owner if not redirecting to 404
   if (!res.locals.isOwner) {
@@ -147,7 +145,7 @@ router.post("/details/:courseId/edit", isAuth, async (req, res) => {
   }
 });
 
-// LIKE STONE
+// LIKE COURSE
 router.get("/details/:courseId/like", isAuth, async (req, res) => {
   const { courseId } = req.params;
   const userId = req.user._id;
