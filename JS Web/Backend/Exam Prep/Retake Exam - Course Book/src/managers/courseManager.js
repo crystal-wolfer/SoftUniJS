@@ -21,7 +21,7 @@ exports.getLastThree = async () => {
   return courses;
 };
 
-//REMOVE IF NOT NEEDED - query that retrieves the last 3 entries from the database
+//REMOVE IF NOT NEEDED - query that adds emails to the signUpList based on the id
 exports.getEmails = async (id, path) => {
   const data = await Course.findById(id)
     .populate({
@@ -31,6 +31,20 @@ exports.getEmails = async (id, path) => {
 
   return data;
 };
+
+// REMOVE IF NOT NEEDED - query that retrieves all created courses
+exports.createdCourses = async (id) => {
+  const createdCourses = await Course.find({owner: id}).lean()
+  return createdCourses;
+}
+
+// REMOVE IF NOT NEEDED - query that retrieves all courses the gived user has signedUp for
+exports.signedUpCourses = async (id) => {
+  const signedUpCourses =  await Course.find(
+    {signUpList: { $elemMatch: { $eq: id } }}).lean();
+
+  return signedUpCourses;
+}
 
 exports.getOne = async (id) => {
   const course = await Course.findById(id).lean();
