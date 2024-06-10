@@ -19,8 +19,7 @@ router.get("/create", isAuth, async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  const { title, type, certificate, imageUrl, description, price } =
-    req.body;
+  const { title, type, certificate, imageUrl, description, price } = req.body;
 
   try {
     await courseManager.create({
@@ -55,18 +54,18 @@ router.get("/details/:courseId", async (req, res) => {
   const course = await courseManager.getOne(courseId);
   let isOwner = false;
   let isLoggedIn = res.locals.isLoggedIn;
-  
+
   const getOwner = await courseManager.getEmails(courseId, "owner");
-  const ownerEmail = getOwner.owner.email
+  const ownerEmail = getOwner.owner.email;
   const signedUp = await courseManager.getEmails(courseId, "signUpList");
-  let userEmails
-  let noSingnUps = true
+  let userEmails;
+  let noSingnUps = true;
 
   if (signedUp.signUpList.length > 0) {
-    userEmails = signedUp.signUpList.map(email => email);
-  } else  if(signedUp.signUpList.length === 0) {
-    noSingnUps = false
-  } else{
+    userEmails = signedUp.signUpList.map((email) => email);
+  } else if (signedUp.signUpList.length === 0) {
+    noSingnUps = false;
+  } else {
     userEmails = signedUp.signUpList[0];
   }
 
@@ -89,9 +88,15 @@ router.get("/details/:courseId", async (req, res) => {
     hasSignedUp = course.signUpList.toString().includes(id);
   }
 
-
-
-  res.render("courses/details", { ...course, ownerEmail, isOwner, isLoggedIn, hasSignedUp, noSingnUps, userEmails  });
+  res.render("courses/details", {
+    ...course,
+    ownerEmail,
+    isOwner,
+    isLoggedIn,
+    hasSignedUp,
+    noSingnUps,
+    userEmails,
+  });
 });
 
 // DELETE COURSE
@@ -104,8 +109,8 @@ router.get("/details/:courseId/delete", isAuth, async (req, res) => {
   }
 
   const { courseId } = req.params;
-  await courseManager.deleteStone(courseId);
-  res.redirect("/courses/dashboard");
+  await courseManager.delete(courseId);
+  res.redirect("/courses");
 });
 
 // EDIT COURSE
@@ -117,31 +122,23 @@ router.get("/details/:courseId/edit", isAuth, async (req, res) => {
   }
 
   const { courseId } = req.params;
-  const course = await courseManager.getStone(courseId);
-  res.render("courses/edit", {...course});
+  const course = await courseManager.getOne(courseId);
+  res.render("courses/edit", { ...course });
 });
 
 router.post("/details/:courseId/edit", isAuth, async (req, res) => {
   const { courseId } = req.params;
   const owner = req.user._id;
-  const { 
-    name, 
-    category, 
-    color, 
-    imageUrl, 
-    location, 
-    formula, 
-    description } = req.body;
+  const { title, type, certificate, imageUrl, description, price } = req.body;
 
   try {
-    await courseManager.editStone(courseId, {
-      name,
-      category,
-      color,
+    await courseManager.edit(courseId, {
+      title,
+      type,
+      certificate,
       imageUrl,
-      location,
-      formula,
       description,
+      price,
       owner,
     });
 
@@ -150,18 +147,17 @@ router.post("/details/:courseId/edit", isAuth, async (req, res) => {
     const err = getErrorMessages(error);
     res.render("courses/edit", {
       errorMessages: err,
-      name,
-      category,
-      color,
+      title,
+      type,
+      certificate,
       imageUrl,
-      location,
-      formula,
       description,
+      price,
     });
   }
 });
 
-// LIKE COURSE
+// SIGN UP FOR COURSE
 router.get("/details/:courseId/signUp", isAuth, async (req, res) => {
   const { courseId } = req.params;
   const userId = req.user._id;
