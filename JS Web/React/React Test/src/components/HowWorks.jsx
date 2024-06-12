@@ -1,4 +1,4 @@
-export default function HowWorks (){
+export default function HowWorks() {
   return (
     <section className="py-4 bg-angled-gradient">
       {/* Container */}
@@ -8,12 +8,9 @@ export default function HowWorks (){
           3 EASY STEPS
         </p>
         <h1 className="text-center text-3xl font-bold lg:text-4xl">
-          How it works
+          How to get started
         </h1>
-        <p className="font-inter mx-auto mb-12 mt-4 max-w-lg px-5 text-center text-base font-light text-slate-800">
-          Use premium tailwindcss components to ship your product faster to your
-          customers. Build better and faster with Devjoy
-        </p>
+
         {/* HOW IT WORKS STEPS */}
         <div className="flex flex-col items-start justify-center lg:flex-row">
           {/* BLOCK */}
@@ -22,13 +19,17 @@ export default function HowWorks (){
               <h2 className="text-3xl font-medium text-white">1</h2>
             </div>
             <div className="ml-6 lg:ml-0">
-              <h2 className="mb-5 text-xl font-medium lg:mt-8">
-                Find Component
+              <h2 className="mb-5 text-xl font-medium lg:mt-8 ">
+                Create Account
               </h2>
-              <p className="font-inter max-w-md pr-5 text-base text-gray-500">
-                Lorem ipsum dolor sit amet, elit ut aliquam, purus sit lorem
-                ipsum dolor sit amet
+              <p className="font-inter max-w-md pr-5 text-base text-gray-500 pb-8">
+                Sign in to TradeVault to get started.
               </p>
+              <button
+                type="button"
+                className="text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                Get started
+                </button>
             </div>
             {/* MOBILE - HOW IT WORKS LINE */}
             <svg
@@ -61,16 +62,15 @@ export default function HowWorks (){
           </div>
           {/* BLOCK */}
           <div className="relative my-8 flex w-full rounded-md lg:mx-8 lg:flex-col">
-            <div className="flex h-16 w-16 items-center justify-center rounded-md bg-primary-700">
+            <div className="flex h-16 w-16 items-center justify-center rounded-md bg-primary-500">
               <h2 className="text-3xl font-medium text-white">2</h2>
             </div>
             <div className="ml-6 lg:ml-0">
               <h2 className="mb-5 text-xl font-medium lg:mt-8">
-                Copy and paste
+                Manage crypto assets
               </h2>
               <p className="font-inter max-w-md pr-5 text-base text-gray-500">
-                Lorem ipsum dolor sit amet, elit ut aliquam, purus sit lorem
-                ipsum dolor sit amet
+                Simply and securely buy, sell, and manage hundreds of cryptocurrencies.
               </p>
             </div>
             {/* MOBILE - HOW IT WORKS LINE */}
@@ -104,19 +104,18 @@ export default function HowWorks (){
           </div>
           {/* BLOCK */}
           <div className="relative my-8 flex w-full rounded-md lg:mx-8 lg:flex-col">
-            <div className="flex h-16 w-16 items-center justify-center rounded-md bg-primary-700">
+            <div className="flex h-16 w-16 items-center justify-center rounded-md bg-primary-400">
               <h2 className="text-3xl font-medium text-white">3</h2>
             </div>
             <div className="ml-6 lg:ml-0">
-              <h2 className="mb-5 text-xl font-medium lg:mt-8">Done!</h2>
+              <h2 className="mb-5 text-xl font-medium lg:mt-8">Start your journey!</h2>
               <p className="font-inter max-w-md pr-5 text-base text-gray-500">
-                Lorem ipsum dolor sit amet, elit ut aliquam, purus sit lorem
-                ipsum dolor sit amet
+                Explore crypto opportunities within our ecosystem.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
