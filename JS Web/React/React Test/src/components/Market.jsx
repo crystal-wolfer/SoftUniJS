@@ -29,7 +29,7 @@ export default function Market2() {
                 {" "}
                 $69,438.40{" "}
               </h6>
-              <div className="css-1ucrnna">
+              <div className="inline-flex py-2">
                 <svg
                   width="17"
                   height="16"
@@ -81,7 +81,7 @@ export default function Market2() {
               />
               <a href="#">
                 <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                Etherium
+                  Etherium
                 </h5>
               </a>
               <p className="font-normal text-gray-700 dark:text-gray-400 pb-6">
@@ -91,7 +91,7 @@ export default function Market2() {
                 {" "}
                 $3,642.23{" "}
               </h6>
-              <div className="css-1ucrnna">
+              <div className="inline-flex py-2">
                 <svg
                   width="17"
                   height="16"
@@ -132,7 +132,6 @@ export default function Market2() {
             </div>
           </div>
 
-
           {/* Item3 */}
           <div className="relative flex max-w-64 justify-center mx-4 md: py-4">
             <div className="w-56 py-6 px-10 bg-white border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
@@ -154,7 +153,7 @@ export default function Market2() {
                 {" "}
                 $1.00{" "}
               </h6>
-              <div className="css-1ucrnna">
+              <div className="inline-flex py-2">
                 <svg
                   width="17"
                   height="16"
@@ -195,7 +194,6 @@ export default function Market2() {
             </div>
           </div>
 
-
           {/* Item4 */}
           <div className="relative flex max-w-64 justify-center mx-4 md: py-4">
             <div className="w-56 py-6 px-10 bg-white border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
@@ -217,7 +215,7 @@ export default function Market2() {
                 {" "}
                 $628.20{" "}
               </h6>
-              <div className="css-1ucrnna">
+              <div className="inline-flex py-2">
                 <svg
                   width="17"
                   height="16"
@@ -257,8 +255,15 @@ export default function Market2() {
               </a>
             </div>
           </div>
+        </div>
 
-
+        <div className="py-8 lg:py-4">
+          <button
+            type="button"
+            className="w-64 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium border-solid border-2 border-primary-800 rounded-3xl text-m px-4 py-4 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          >
+            Explore more assets
+          </button>
         </div>
       </div>
     </section>
