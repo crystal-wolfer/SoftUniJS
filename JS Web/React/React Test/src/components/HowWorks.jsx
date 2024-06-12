@@ -1,6 +1,6 @@
 export default function HowWorks (){
   return (
-    <section className="py-4 bg-primary-100">
+    <section className="py-4 bg-angled-gradient">
       {/* Container */}
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-5 py-8 md:px-8 md:py-8">
         {/* HEADING TEXT */}

@@ -23,7 +23,11 @@ export default {
         "950":"#082f49"
         },
 
-      }
+      },
+
+      backgroundImage: {
+        'angled-gradient': 'linear-gradient(45deg, #bae6fd, #D7F3FF)',
+      },
     },
     fontFamily: {
       'body': [
