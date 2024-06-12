@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <section className="bg-primary-100 dark:bg-gray-900">
-      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12">
+    <section className="bg-primary-100 dark:bg-gray-900 max-w-screen-xl pt-12 sm:py-8 mx-auto">
+      <div className="grid max-w-screen-xl px-4 py-12 mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12 sm:py-16">
         <div className="mr-auto place-self-center lg:col-span-7">
           <h1 className="max-w-2xl mb-6 text-4xl tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white font-extrabold">
             Own your crypto adventure!
