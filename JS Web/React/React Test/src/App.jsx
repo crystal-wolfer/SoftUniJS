@@ -1,12 +1,12 @@
 import './App.css'
-import Customers from './components/Customers.jsx'
-import Feature from './components/Feature.jsx'
-import Hero from './components/Hero.jsx'
-import HowWorks from './components/HowWorks.jsx'
+import Customers from './components/Home Page/Customers.jsx'
+import Feature from './components/Home Page/Feature.jsx'
+import Hero from './components/Home Page/Hero.jsx'
+import HowWorks from './components/Home Page/HowWorks.jsx'
 import NavBar from './components/NavBar.jsx'
-import Market from './components/Market.jsx'
+import Market from './components/Home Page/Market.jsx'
 import Footer from './components/Footer.jsx'
-import News from './components/News.jsx'
+import News from './components/Home Page/News.jsx'
 
 
 function App() {
