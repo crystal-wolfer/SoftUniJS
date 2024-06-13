@@ -7,7 +7,7 @@ export default function Market2() {
           Hottest crypto assets
         </h2>
 
-        <div className="flex flex-col w-full items-start justify-center lg:flex-row md: items-center ">
+        <div className="flex flex-col w-full items-center justify-center lg:flex-row md: ">
           {/* Item1 */}
           <div className="relative flex max-w-64 justify-center mx-4 md: py-4">
             <div className="w-56 py-6 px-10 bg-white border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
