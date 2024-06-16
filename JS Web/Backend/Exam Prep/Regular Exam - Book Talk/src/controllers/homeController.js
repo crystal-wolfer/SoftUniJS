@@ -10,9 +10,7 @@ router.get("/", async (req, res) => {
 router.get("/my-profile", isAuth, async (req, res) => {
   const email = req.user.email
   const id = req.user._id;
-  console.log(id);
   const wishList = await bookManager.wishList(id)
-  console.log(wishList);
   res.render("profile", {email, wishList});
 });
 
