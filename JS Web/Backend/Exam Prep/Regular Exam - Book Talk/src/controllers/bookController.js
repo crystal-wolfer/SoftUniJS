@@ -84,7 +84,7 @@ router.get("/details/:bookId/delete", isAuth, async (req, res) => {
 
   const { bookId } = req.params;
   await bookManager.delete(bookId);
-  res.redirect("/books/dashboard");
+  res.redirect("/books/catalog");
 });
 
 // EDIT BOOK
@@ -103,18 +103,17 @@ router.get("/details/:bookId/edit", isAuth, async (req, res) => {
 router.post("/details/:bookId/edit", isAuth, async (req, res) => {
   const { bookId } = req.params;
   const owner = req.user._id;
-  const { name, category, color, imageUrl, location, formula, description } =
+  const { title, author, genre, stars, imageUrl, review } =
     req.body;
 
   try {
     await bookManager.edit(bookId, {
-      name,
-      category,
-      color,
+      title,
+      author,
+      genre,
+      stars,
       imageUrl,
-      location,
-      formula,
-      description,
+      review,
       owner,
     });
 
@@ -123,13 +122,12 @@ router.post("/details/:bookId/edit", isAuth, async (req, res) => {
     const err = getErrorMessages(error);
     res.render("books/edit", {
       errorMessages: err,
-      name,
-      category,
-      color,
+      title,
+      author,
+      genre,
+      stars,
       imageUrl,
-      location,
-      formula,
-      description,
+      review,
     });
   }
 });
