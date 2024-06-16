@@ -17,26 +17,13 @@ exports.getOne = async (id) => {
 };
 
 
-//REMOVE IF NOT NEEDED - query that retrieves the last 3 entries from the database
-exports.getLastThree = async () => {
-  let courses = await Book.find()
-  .sort({ createdAt: -1 })
-  .limit(3)
-  .lean();
+// Query that retrieves all books the given user has added to wishList
+exports.wishList = async (id) => {
+  const wishList =  await Book.find(
+    {wishingList: { $elemMatch: { $eq: id } }}).lean();
 
-  return courses;
-};
-
-//REMOVE IF NOT NEEDED - query that retrieves the last 3 entries from the database
-exports.getEmails = async (id, path) => {
-  const data = await Book.findById(id)
-    .populate({
-      path: path,
-      select:'email'
-    }).lean();
-
-  return data;
-};
+  return wishList;
+}
 
 // TODO: This needs to be renamed
 exports.wish = async (bookId, userId) => {
