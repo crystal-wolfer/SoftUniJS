@@ -11,15 +11,18 @@ router.get("/register", isLoggedIn, (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const { email, password, repeatPassword } = req.body;
+  const { username, email, password, repeatPassword } = req.body;
 
   try {
-    await userManager.register({ email, password, repeatPassword });
+    await userManager.register({ username, email, password, repeatPassword });
+    const token = await userManager.login(email, password);
+    // setting up the cookie
+    res.cookie("userAuth", token, { httpOnly: true });
     res.redirect("/");
 
   } catch (error) {
     const err = getErrorMessages(error);
-    res.status(400).render("./user/register", { errorMessages: err, email });
+    res.status(400).render("./user/register", { errorMessages: err, username, email });
   }
 });
 
