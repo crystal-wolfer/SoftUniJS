@@ -26,7 +26,7 @@ exports.login = async (email, password) => {
     throw new Error ("Invalid password!");
   }
 
-  // creating jwt token to be stored as a cookie
+  // creating jwt token to be stored as a cookie with user info in the req
   const payload = {
     _id: user._id,
     email: user.email
