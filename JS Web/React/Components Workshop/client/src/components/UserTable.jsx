@@ -1,18 +1,28 @@
 import UserItem from "./UserItem.jsx";
 import * as userAPI from "../api/userAPI.js";
 import { useEffect, useState } from "react";
+import EditAddUser from "./EditAddUser.jsx";
 
 export default function UserTable() {
   const [users, setUsers] = useState([]);
+  const [showCreate, setShowCreate] = useState(false);
 
   useEffect(() =>{
     userAPI.getAll()
       .then(result => setUsers(result))
   }, []);
 
+  function createUserClickHandler(){
+    setShowCreate(!showCreate);
+    console.log(showCreate);
+  }
+
 
   return(
-          <div className="table-wrapper">
+        <div className="table-wrapper">
+        {/* if showCreate == true render comp */}
+        {showCreate && <EditAddUser createUserClickHandler={createUserClickHandler}/>}
+
         {/* <!-- Overlap components  --> */}
 
         {/* <!-- <div className="loading-shade"> --> */}
@@ -152,6 +162,8 @@ export default function UserTable() {
               ))}
           </tbody>
         </table>
+      {/* <!-- New user button  --> */}
+      <button className="btn-add btn" onClick={createUserClickHandler}>Add new user</button>
       </div>
   )
 }

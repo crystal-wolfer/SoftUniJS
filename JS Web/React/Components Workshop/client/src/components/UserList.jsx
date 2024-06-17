@@ -6,9 +6,6 @@ export default function UserList() {
     <section className="card users-container">
       <Search></Search>
       <UserTable></UserTable>
-      {/* <!-- New user button  --> */}
-      <button className="btn-add btn">Add new user</button>
-
     </section>
   )
 }

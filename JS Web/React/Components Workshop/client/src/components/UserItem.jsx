@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { formatDate } from "../utils/dateUtils.js";
 
 export default function UserItem ({
