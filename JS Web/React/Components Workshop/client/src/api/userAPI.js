@@ -42,3 +42,12 @@ export const getOne = async (id) => {
   const result = await response.json();
   return result;
 };
+
+export const remove = async (id) => {
+  const response = await fetch(`${baseURL}/${id}`,{
+    method: "DELETE"
+  });
+  
+  const result = await response.json()
+  return result
+}

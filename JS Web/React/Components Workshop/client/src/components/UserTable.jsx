@@ -3,12 +3,14 @@ import * as userAPI from "../api/userAPI.js";
 import { useEffect, useState } from "react";
 import EditAddUser from "./EditAddUser.jsx";
 import UserInfo from "./UserInfo.jsx";
+import UserDelete from "./UserDelete.jsx";
 
 export default function UserTable() {
   const [users, setUsers] = useState([]);
   const [showCreate, setShowCreate] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [showDelete, setShowDelete] = useState(false);
 
 
   useEffect(() => {
@@ -39,10 +41,26 @@ export default function UserTable() {
     setShowCreate(!showCreate);
   }
 
+  function userDeleteClickHandler(userId) {
+    setSelectedUser(userId);
+    setShowDelete(!showDelete);
+  }
+
+  async function deleteUserHandler(userId) {
+    // Remove user from the list
+    const result = await userAPI.remove(userId);
+
+    // Remove the user from the state
+    setUsers((state) => state.filter(user => user._id !== userId)); //
+
+    // Close the modal
+    setShowDelete(!showDelete);
+  }
+
+// only passing the userId to the modal component the rendering and API call happen in that component because we don't want to keep this data in memory
   async function userInfoHandler(userId) {
     setSelectedUser(userId);
     setShowInfo(!showInfo);
-    // const userData = await userAPI.getOne(userId);
   }
 
   return (
@@ -59,6 +77,14 @@ export default function UserTable() {
       {showInfo && (
         <UserInfo 
           onClose={() => setShowInfo(!showInfo)}
+          userId={selectedUser}
+        />)}
+
+      {/* is showDelete == true render comp */}
+      {showDelete && (
+        <UserDelete 
+          onClose={() => setShowDelete(!showDelete)}
+          onDelete={deleteUserHandler}
           userId={selectedUser}
         />)}
 
@@ -241,6 +267,7 @@ export default function UserTable() {
               createdAt={user.createdAt}
               imageUrl={user.imageUrl}
               onInfoClick={userInfoHandler}
+              onDeleleteClick= {userDeleteClickHandler}
             />
           ))}
         </tbody>
