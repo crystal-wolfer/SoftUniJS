@@ -22,7 +22,6 @@ export default function UserTable() {
 
   function createUserClickHandler() {
     setShowCreate(!showCreate);
-    console.log(showCreate);
   }
 
   async function userCreateHandler(e) {
