@@ -1,9 +1,9 @@
 export default function Spinner() {
   return (
-    <div role="status">
-      <svg
+    <div className="flex flex-col justify-center items-center" role="status">
+      <svg 
         aria-hidden="true"
-        class="w-8 h-8 text-white animate-spin dark:text-gray-600 fill-blue-600"
+        className="w-8 h-8 text-white animate-spin dark:text-gray-600 fill-blue-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@ export default function Spinner() {
           fill="currentFill"
         />
       </svg>
-      <span class="sr-only">Loading...</span>
+      <span className="text-gray-700 py-4">Loading...</span>
     </div>
   );
 }

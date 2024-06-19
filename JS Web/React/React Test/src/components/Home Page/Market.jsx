@@ -14,7 +14,9 @@ export default function Market() {
       const topCoins =  Object.values(data).slice(0,5);
       setCoins(topCoins);
     })
-    .finally(() => {setLoading(false);});
+    .finally(() => {
+      
+      setLoading(false);});
   }, [setCoins]);
 
   return (

@@ -14,10 +14,11 @@ try {
 	const result = await response.json();
   const array = Object.values(result);
   const arrayResults = array[1];
-  console.log(arrayResults);
 
   return arrayResults
 } catch (error) {
 	console.error(error);
 }
 }
+
+// using the following free API: https://rapidapi.com/sparior/api/cryptocurrency-markets/playground/apiendpoint_dc38c718-1e01-4d38-8aea-7a40d57f6a48 
