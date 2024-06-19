@@ -19,3 +19,5 @@ export const getNews = async () => {
     console.error(error);
   }
 };
+
+

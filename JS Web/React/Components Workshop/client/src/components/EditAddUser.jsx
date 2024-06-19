@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export default function EditAddUser({createUserClickHandler}) {
+export default function EditAddUser({createUserClickHandler, onUserCreate}) {
   return (
     // <!-- Create/Edit Form component  -->
      <div className="overlay">
@@ -17,7 +17,7 @@ export default function EditAddUser({createUserClickHandler}) {
               </svg>
             </button>
           </header>
-          <form>
+          <form onSubmit={onUserCreate}>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="firstName">First name</label>
