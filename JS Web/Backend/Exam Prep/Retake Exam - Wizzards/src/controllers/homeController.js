@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
   // const stones = await stoneManager.getAll();
-  res.render("home", {stones});
+  res.render("home");
 });
 
 // TODO: FIX or REMOVE IF NOT NEEDED

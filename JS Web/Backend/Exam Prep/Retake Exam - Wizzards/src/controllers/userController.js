@@ -11,15 +11,16 @@ router.get("/register", isLoggedIn, (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
-  const { email, password, repeatPassword } = req.body;
+  const { firstName, lastName, email, password, repeatPassword } = req.body;
 
   try {
-    await userManager.register({ email, password, repeatPassword });
+    await userManager.register({ firstName, lastName, email, password, repeatPassword });
     res.redirect("/");
 
   } catch (error) {
     const err = getErrorMessages(error);
-    res.status(400).render("./user/register", { errorMessages: err, email });
+    console.log(err);
+    res.status(400).render("./user/register", { errorMessages: err, firstName, lastName, email });
   }
 });
 
