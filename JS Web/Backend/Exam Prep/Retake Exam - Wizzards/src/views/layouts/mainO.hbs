@@ -1,0 +1,67 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Home Page</title>
+  </head>
+
+  <body>
+      {{#each errorMessages}}
+    <div>
+      <div class="errorContainer">
+        <p>{{this}}</p>
+      </div>
+    </div>
+
+    <div id="wrapper">
+    {{/each}}
+      <header>
+        <!-- Navigation -->
+        <nav>
+          <div>
+            <a href="/">Home</a>
+            <a href="/stones/dashboard">Dashboard</a>
+            <a href="/search">Search</a>
+          </div>
+
+          <!-- Logged-in users -->
+           {{#if isAuthenticated}}
+          <div class="user">
+            <a href="/stones/create">Add Stones</a>
+            <a href="/users/logout">Logout</a>
+          </div>
+
+          <!-- Guest users -->
+            {{else}}
+          <div class="guest">
+            <a href="/users/login">Login</a>
+            <a href="/users/register">Register</a>
+            {{/if}}
+          </div>
+        </nav>
+      </header>
+      {{! This is where all other pages are rendered }}
+      {{{body}}}
+      <footer>
+        <p>@EarthTreasureVaul</p>
+      </footer>
+    </div>
+{{!-- Script that adds spacing to the error messages --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll('.errorContainer');
+            containers.forEach((container, index) => {
+                const spacing = 8; // spacing in pixels
+                const initialTop = 13; // initial top percentage
+                const topOffset = initialTop + (index * 16) + '%';
+                container.style.top = `calc(${topOffset} + ${spacing}px)`;
+            });
+        });
+    </script>
+  </body>
+
+
+</html>
