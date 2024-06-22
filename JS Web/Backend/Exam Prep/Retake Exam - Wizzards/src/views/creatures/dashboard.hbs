@@ -1,19 +1,18 @@
-<main class="dashboard">
-  <section id="dashboard">
-    <h2>Minerals and Gems</h2>
-    <ul class="card-wrapper">
-      <!-- Display a li with information about every post (if any)-->
-      {{#each stones}}
-      {{>dashTempl}}
-      {{/each}}
-    </ul>
+<main>
 
+  <section id="catalog">
+    <h1>All posts</h1>
+    <div class="band">
+      {{#each creatures}}
+      {{>creatureTempl}}
+      {{/each}}
+      <!-- If there are still no posts in the database display: -->
     {{#if empty}}
-    <!-- Display an h2 if there are no posts -->
-    <div id="no-post">
-      <h2>There are no gems and minerals! </h2>
-    </div>
+      <div class="no-posts">
+        <p class="no-offer">There are no posts yet...</p>
+      </div>
     {{/if}}
 
+    </div>
   </section>
 </main>

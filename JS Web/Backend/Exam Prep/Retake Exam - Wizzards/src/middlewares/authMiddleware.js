@@ -1,6 +1,6 @@
 const jwt = require('../lib/jwt.js');
 const SECRET = "018ffd96-4177-7b75-b3c6-038a6dc072af"
-const stoneManager = require('../managers/stoneManager.js')
+const creatureManager = require('../managers/creatureManager.js')
 
 
 exports.auth = async (req, res, next) => {
@@ -44,14 +44,14 @@ exports.isAuth = async (req, res, next) => {
 
   // TODO: UPDATE
   // Check if user is Owner
-  // if (isLoggedIn && params != 0) {
-  //   const {stoneId} = req.params
-  //   const stone = await stoneManager.getOne(stoneId);
+  if (isLoggedIn && params != 0) {
+    const {creatureId} = req.params
+    const creature = await creatureManager.getOne(creatureId);
 
-  //   if (req.user._id === stone.owner?.toString()) {
-  //     isOwner = true;
-  //   }
-  // } 
+    if (req.user._id === creature.owner?.toString()) {
+      isOwner = true;
+    }
+  } 
 
   // Set properties in res.locals
   res.locals.isLoggedIn = isLoggedIn;
