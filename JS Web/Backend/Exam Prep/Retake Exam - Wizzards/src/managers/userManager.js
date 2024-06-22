@@ -36,3 +36,9 @@ exports.login = async (email, password) => {
   const token = await jwt.sign(payload, SECRET, {expiresIn:'1d'});
   return token;
 };
+
+//Get Owner name
+exports.getOwnerName = async function(id){
+  const owner = await User.findById(id).lean();
+  return owner;
+}

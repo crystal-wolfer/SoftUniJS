@@ -16,16 +16,16 @@ exports.getOne = async (id) => {
   return creature;
 };
 
-
-//REMOVE IF NOT NEEDED - query that retrieves the last 3 entries from the database
-exports.getLastThree = async () => {
-  let courses = await Creature.find()
-  .sort({ createdAt: -1 })
-  .limit(3)
-  .lean();
-
-  return courses;
-};
+// REMOVE IF NOT NEEDED - query that retrieves all created courses
+exports.createdCreatures = async (id) => {
+  const createdCreatures = await Creature.find({owner: id})
+    .populate({
+      path: 'owner',
+      select: 'firstName lastName'
+    })
+    .lean()
+  return createdCreatures;
+}
 
 //REMOVE IF NOT NEEDED - query that retrieves the names of the creator
 exports.getNames = async (id, path) => {
