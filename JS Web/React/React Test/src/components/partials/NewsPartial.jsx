@@ -2,6 +2,7 @@ export default function NewsPartial({
   title,
   preview,
   publisher,
+  url,
 }){
   return(
           <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-col">
@@ -27,7 +28,7 @@ export default function NewsPartial({
                 <span className="font-medium dark:text-white">{publisher}</span>
               </div>
               <a
-                href="#"
+                href={url}
                 className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
               >
                 Read more

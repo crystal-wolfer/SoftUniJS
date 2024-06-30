@@ -7,12 +7,7 @@ export default function News() {
   const [news, setNews] = useState([]);
   
   useEffect(() => {
-    newsAPI.getNews().then(data => 
-      {
-        let firstTwoArticles = data.slice(0,2);
-        setNews(firstTwoArticles);
-
-      })
+    newsAPI.getNews().then(data => setNews(data))
   },[])
 
 
@@ -29,11 +24,13 @@ export default function News() {
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
           {news.map(item => (
+            
             <NewsPartial
               key={item.date}
               title = {item.title}
-              preview = {item.preview}
-              publisher = {item.publisher}
+              preview = {item.excerpt}
+              publisher = {item.publisher.name}
+              url = {item.url}
             />
           ))}
         </div>
