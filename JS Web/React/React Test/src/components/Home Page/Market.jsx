@@ -2,6 +2,7 @@ import MarketPartial from "../partials/MarketPartial.jsx";
 import Spinner from "../Static Pages/Loading.jsx";
 import * as cryptoAPI from "../../API/cryptoAPI.js";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Market() {
   const [coins, setCoins] = useState([]);
@@ -48,12 +49,14 @@ export default function Market() {
         </div>
 
         <div className="py-8 lg:py-4">
+          <Link to="/market-overview">
           <button
             type="button"
-            className="w-64 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium border-solid border-2 border-primary-800 rounded-3xl text-m px-4 py-4 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            className="w-64 text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium border-solid border-2 border-primary-800 rounded-xl text-m px-4 py-4 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
             Explore more assets
           </button>
+          </Link>
         </div>
       </div>
     </section>

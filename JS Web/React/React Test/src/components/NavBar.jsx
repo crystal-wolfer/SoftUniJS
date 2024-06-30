@@ -76,10 +76,10 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/about-us"
                 className={`block py-2 px-3 md:p-0 ${getLinkClasses('#')}`}
               >
-                About
+                About Us
               </a>
             </li>
             <li>

@@ -4,6 +4,7 @@ import NavBar from './components/NavBar.jsx'
 import Home from './components/Home Page/Home.jsx'
 import Footer from './components/Footer.jsx'
 import MarketOverview from './components/Market Overview Page/MarketOverview.jsx'
+import About from './components/Static Pages/About.jsx'
 import NotFound from './components/Static Pages/404.jsx'
 
 
@@ -15,6 +16,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/market-overview' element={<MarketOverview/>}/>
+      <Route path='/about-us' element={<About/>}/>
       <Route path='*' element={<NotFound/>}/>
     </Routes>
      <Footer/>
