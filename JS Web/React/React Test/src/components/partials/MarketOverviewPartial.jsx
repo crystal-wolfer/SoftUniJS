@@ -35,8 +35,8 @@ export default function MarketPartial({
         {symbol}
       </th>
       <td className="px-6 py-4">$ {price}</td>
-      <td className="px-6 py-4">{changePercentage}%</td>
-      <td className="px-6 py-4">${totalSupply}</td>
+      <td className="px-6 py-4">{changePercentage} %</td>
+      <td className="px-6 py-4">{totalSupply} M</td>
       <td className="px-6 py-4">
         <a
           href="#"

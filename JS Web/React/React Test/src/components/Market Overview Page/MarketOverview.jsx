@@ -11,7 +11,7 @@ export default function MarketOverview() {
     cryptoAPI
       .getCrypto()
       .then((data) => {
-        const topCoins = Object.values(data).slice(0, 25);
+        const topCoins = Object.values(data).slice(0, 50);
         setCoins(topCoins);
       })
       .finally(() => {
@@ -68,7 +68,7 @@ export default function MarketOverview() {
                   symbol={coin.symbol}
                   price={coin.quote.quotes_price.toFixed(2)}
                   rank={coin.rank}
-                  totalSupply={coin.totalSupply.toFixed(2)}
+                  totalSupply={(coin.totalSupply*0.000001).toFixed(2)}
                   changePercentage={changePercentage.toFixed(2)}
                 />
               );
