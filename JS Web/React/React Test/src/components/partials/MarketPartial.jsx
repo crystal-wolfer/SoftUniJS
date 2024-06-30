@@ -74,7 +74,7 @@ export default function MarketPartial({
         </div>
         <a
           href="#"
-          className="pt-6 inline-flex font-medium items-center text-blue-600 hover:underline"
+          className="pt-6 inline-flex font-medium items-center text-primary-600 hover:underline"
         >
           See details
           <svg

@@ -13,9 +13,11 @@ export const getNews = async () => {
     const response = await fetch(url, options);
     const result = await response.json();
 
-    console.log(result.data);
     return result.data;
   } catch (error) {
     console.error(error);
   }
 };
+
+
+// using the following API: https://rapidapi.com/bonaipowered/api/news-api14/playground/apiendpoint_8ef933e7-215e-4a0f-bc5f-f85bebd24f34
