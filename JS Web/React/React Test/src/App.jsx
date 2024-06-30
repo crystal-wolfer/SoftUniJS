@@ -1,14 +1,10 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
-// import Hero from './components/Home Page/Hero.jsx'
-// import Market from './components/Home Page/Market.jsx'
-// import Feature from './components/Home Page/Feature.jsx'
-// import HowWorks from './components/Home Page/HowWorks.jsx'
-import Customers from './components/Home Page/Customers.jsx'
-// import News from './components/Home Page/News.jsx'
+import Home from './components/Home Page/Home.jsx'
 import Footer from './components/Footer.jsx'
 import MarketOverview from './components/Market Overview Page/MarketOverview.jsx'
-// import NotFound from './components/Static Pages/404.jsx'
+import NotFound from './components/Static Pages/404.jsx'
 
 
 function App() {
@@ -16,13 +12,11 @@ function App() {
   return (
   <div>
     <NavBar />
-    <MarketOverview/>
-     {/* <Hero /> */}
-     {/* <Market/> */}
-     {/* <Feature /> */}
-     {/* <HowWorks /> */}
-     {/* <Customers /> */}
-     {/* <News />  */}
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/market-overview' element={<MarketOverview/>}/>
+      <Route path='*' element={<NotFound/>}/>
+    </Routes>
      <Footer/>
   </div>
   )
