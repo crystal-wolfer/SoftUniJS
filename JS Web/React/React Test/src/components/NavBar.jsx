@@ -75,7 +75,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/about-us"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("/about-us")}`}
               >
                 About Us
               </a>
@@ -101,7 +101,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/login"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("/login")}`}
               >
                 Login
               </a>
