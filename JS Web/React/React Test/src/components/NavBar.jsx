@@ -100,7 +100,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="/login"
                 className={`block py-2 px-3 md:p-0 ${getLinkClasses('#')}`}
               >
                 Login
