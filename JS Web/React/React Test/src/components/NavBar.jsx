@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,12 +11,11 @@ const Navbar = () => {
   const location = useLocation();
   const getLinkClasses = (path) => {
     return location.pathname === path
-      ? 'text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:dark:text-primary-500'
-      : 'text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-700 md:dark:hover:text-primary-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700';
-  }
+      ? "text-white bg-primary-700 rounded md:bg-transparent md:text-primary-700 md:dark:text-primary-500"
+      : "text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-700 md:dark:hover:text-primary-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+  };
 
   return (
-    
     <nav className="mb-14 bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -26,10 +25,7 @@ const Navbar = () => {
           </span>
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button
-            type="button"
-            className="btn-primary"
-          >
+          <button type="button" className="btn-primary">
             Get started
           </button>
           <button
@@ -68,7 +64,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses('/')}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("/")}`}
                 aria-current="page"
               >
                 Home
@@ -77,7 +73,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/about-us"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses('#')}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
               >
                 About Us
               </a>
@@ -85,7 +81,9 @@ const Navbar = () => {
             <li>
               <a
                 href="/market-overview"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses('/market-overview')}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses(
+                  "/market-overview"
+                )}`}
               >
                 Market Overview
               </a>
@@ -93,7 +91,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses('#')}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
               >
                 My Profile
               </a>
@@ -101,9 +99,17 @@ const Navbar = () => {
             <li>
               <a
                 href="/login"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses('#')}`}
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
               >
                 Login
+              </a>
+            </li>
+            <li>
+              <a
+                href="/register"
+                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
+              >
+                Register
               </a>
             </li>
           </ul>
