@@ -11,7 +11,7 @@ export default function Login() {
         <form className={styles.loginForm}>
           <h2>Account Login</h2>
           <div className={styles.inputGroup}>
-            <input type="text" placeholder="User name" required />
+            <input type="text" placeholder="Email" required />
           </div>
           <div className={styles.inputGroup}>
             <input type="password" placeholder="Password" required />
