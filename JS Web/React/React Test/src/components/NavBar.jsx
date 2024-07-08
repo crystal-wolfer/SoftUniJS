@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navbar = () => {
       : "text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-700 md:dark:hover:text-primary-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
   };
 
-  return (
+   return (
     <nav className="mb-14 bg-white border-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -25,9 +25,11 @@ const Navbar = () => {
           </span>
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <Link to="/register">
           <button type="button" className="btn-primary">
             Get started
           </button>
+          </Link>
           <button
             data-collapse-toggle="navbar-cta"
             type="button"
@@ -102,14 +104,6 @@ const Navbar = () => {
                 className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
               >
                 Login
-              </a>
-            </li>
-            <li>
-              <a
-                href="/register"
-                className={`block py-2 px-3 md:p-0 ${getLinkClasses("#")}`}
-              >
-                Register
               </a>
             </li>
           </ul>

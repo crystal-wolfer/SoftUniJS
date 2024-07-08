@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function HowWorks() {
   return (
     <section className="py-4 bg-angled-gradient">
@@ -25,11 +27,14 @@ export default function HowWorks() {
               <p className="font-inter max-w-md pr-5 text-base text-gray-500 pb-8">
                 Sign in to TradeVault to get started.
               </p>
+              <Link to="/register">
               <button
                 type="button"
-                className="btn-primary">
+                className="btn-primary"
+              >
                 Get started
-                </button>
+              </button>
+              </Link>
             </div>
             {/* MOBILE - HOW IT WORKS LINE */}
             <svg

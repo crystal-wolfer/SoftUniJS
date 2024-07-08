@@ -27,7 +27,7 @@ export default function MarketPartial({
           />
         </div>
         <a href="#">
-          <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
             {name}
           </h5>
         </a>

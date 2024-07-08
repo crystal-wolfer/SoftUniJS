@@ -10,7 +10,7 @@ export default function Hero() {
             Grow and manage your crypto portfolio with our easy to use interface. <span className="text-gray-800 font-medium">Start trading crypto today with just $10.</span>
           </p>
           <a
-            href="#"
+            href="/register"
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center btn-primary"
           >
             Get started

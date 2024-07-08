@@ -69,21 +69,21 @@
 
 .button {
   width: 100%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   background-color: #0284c7;
   color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
   font-weight: 500;
   border-radius: 0.25rem;
   border-width: 2px;
   border-style: solid;
   border-color: #075985;
   cursor: pointer;
-  font-size: 14px;
   font-family: "Montserrat", "ui-sans-serif", "system-ui", "-apple-system",
     "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans",
     "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
