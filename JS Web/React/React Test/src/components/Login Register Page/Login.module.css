@@ -42,7 +42,7 @@
 }
 
 .loginForm {
-  max-width: 300px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -106,6 +106,8 @@
     "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans",
     "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
+  font-size: 12px;
+
 }
 
 .forgotLink:hover,

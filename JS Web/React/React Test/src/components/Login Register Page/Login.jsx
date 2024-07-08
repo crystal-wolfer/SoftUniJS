@@ -19,10 +19,7 @@ export default function Login() {
           <button type="submit" className={styles.button}>
             Sign In
           </button>
-          <a href="#" className={styles.forgotLink}>
-            Forgot User name / password?
-          </a>
-          <a href="#" className={styles.signupLink}>
+          <a href="/register" className={styles.signupLink}>
             Sign Up
           </a>
         </form>

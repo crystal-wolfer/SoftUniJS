@@ -66,6 +66,28 @@
     "Noto Color Emoji";
 }
 
+.nameInputGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputGroupHalf {
+  width: 48%;
+}
+
+.inputGroupHalf input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: "Montserrat", "ui-sans-serif", "system-ui", "-apple-system",
+    "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans",
+    "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  margin-bottom: 1rem;
+
+}
+
 .button {
   width: 100%;
   padding-top: 0.5rem;
@@ -94,6 +116,7 @@
   background-color: #075985;
 }
 
+
 .forgotLink,
 .signupLink {
   display: block;
@@ -101,6 +124,7 @@
   text-align: center;
   color: #0284c7;
   text-decoration: none;
+  font-size: 12px;
   font-family: "Montserrat", "ui-sans-serif", "system-ui", "-apple-system",
     "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans",
     "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
