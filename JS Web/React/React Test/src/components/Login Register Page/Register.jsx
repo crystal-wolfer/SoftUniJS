@@ -32,6 +32,9 @@ export default function Register() {
             <button type="submit" className={styles.button}>
               Sign Up
             </button>
+
+            <span className={styles.infoText}> Already have an account?</span>
+
             <a href="/login" className={styles.signupLink}>
               Sign In
             </a>

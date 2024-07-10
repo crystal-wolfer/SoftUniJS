@@ -19,6 +19,9 @@ export default function Login() {
           <button type="submit" className={styles.button}>
             Sign In
           </button>
+
+          <span className={styles.infoText}> Don't have an account yet?</span>
+
           <a href="/register" className={styles.signupLink}>
             Sign Up
           </a>
