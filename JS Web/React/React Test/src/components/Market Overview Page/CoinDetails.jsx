@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as cryptoAPI from "../API/cryptoAPI.js";
-import LineChart from "./partials/LineChart.jsx";
+import * as cryptoAPI from "../../API/cryptoAPI.js";
+import LineChart from "../partials/LineChart.jsx";
 
 export default function CoinDetails() {
   const { id } = useParams();

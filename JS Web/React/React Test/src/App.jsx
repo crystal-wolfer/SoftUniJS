@@ -7,7 +7,7 @@ import MarketOverview from './components/Market Overview Page/MarketOverview.jsx
 import About from './components/Static Pages/About.jsx'
 import Login from './components/Login Register Page/Login.jsx'
 import Register from './components/Login Register Page/Register.jsx'
-import CoinDetails from './components/CoinDetails.jsx'
+import CoinDetails from './components/Market Overview Page/CoinDetails.jsx'
 import NotFound from './components/Static Pages/404.jsx'
 
 
