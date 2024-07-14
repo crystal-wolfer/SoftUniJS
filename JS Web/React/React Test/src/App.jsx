@@ -7,7 +7,7 @@ import MarketOverview from './components/Market Overview Page/MarketOverview.jsx
 import About from './components/Static Pages/About.jsx'
 import Login from './components/Login Register Page/Login.jsx'
 import Register from './components/Login Register Page/Register.jsx'
-import API from './components/API.jsx'
+import CoinDetails from './components/CoinDetails.jsx'
 import NotFound from './components/Static Pages/404.jsx'
 
 
@@ -22,7 +22,7 @@ function App() {
       <Route path='/about-us' element={<About/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
-      <Route path='/market-overview/trade/:id' element={<API/>}/>
+      <Route path='/market-overview/trade/:id' element={<CoinDetails/>}/>
       <Route path='*' element={<NotFound/>}/>
     </Routes>
      <Footer/>

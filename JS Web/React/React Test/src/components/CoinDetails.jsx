@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import * as cryptoAPI from "../API/cryptoAPI.js";
 import LineChart from "./partials/LineChart.jsx";
 
-export default function API() {
+export default function CoinDetails() {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [coinInfo, setCoinInfo] = useState([]);
@@ -58,13 +58,18 @@ export default function API() {
       <div className="py-20 max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
+           <div className="mt-6 sm:mt-8 lg:mt-0">
+            <h1 className="text-base font-semibold mb-8 text-gray-900 sm:text-2xl dark:text-white"> 
+            {coinInfo.name} Price last 24h
+            </h1>
+           </div>
           {dataFetched && (
               <LineChart data={data} name={coinInfo.name}/>
           )}
           </div>
           <div className="mt-6 sm:mt-8 lg:mt-0">
             <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
-              {coinInfo.name} {coinInfo.symbol}
+              {coinInfo.name} {coinInfo.symbol} 
             </h1>
             <div className="mt-4 sm:items-center sm:gap-4 sm:flex">
               <p className="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
