@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+
+
 export default function MarketPartial({
+  _id,
   name,
   logo,
   symbol,
@@ -36,12 +40,11 @@ export default function MarketPartial({
       <td className="px-6 py-4">{changePercentage} %</td>
       <td className="px-6 py-4">{totalSupply} M</td>
       <td className="px-6 py-4">
-        <a
-          href="#"
+        <Link to={`/market-overview/trade/${_id}`}
           className="font-medium text-primary-600 dark:text-primary-500 hover:underline"
         >
-          Trade
-        </a>
+          Buy
+        </Link>
       </td>
     </tr>
   );

@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function MarketPartial({
+  _id,
   name,
   logo,
   symbol,
@@ -15,6 +18,8 @@ export default function MarketPartial({
     }
   }, [changePercentage]);
 
+
+  console.log(_id);
   return (
     <div className="relative flex max-w-64 justify-center mx-4 md: py-4">
       <div className="w-56 py-6 px-10 bg-white border border-gray-200 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700">
@@ -72,11 +77,11 @@ export default function MarketPartial({
             {changePercentage}%
           </p>
         </div>
-        <a
-          href="#"
+        <Link to={`/market-overview/trade/${_id}`}
           className="pt-6 inline-flex font-medium items-center text-primary-600 hover:underline"
         >
           See details
+        
           <svg
             className="w-3 h-3 ms-2.5 rtl:rotate-[270deg]"
             aria-hidden="true"
@@ -92,7 +97,7 @@ export default function MarketPartial({
               d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"
             />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

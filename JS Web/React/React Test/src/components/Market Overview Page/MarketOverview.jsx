@@ -62,7 +62,8 @@ export default function MarketOverview() {
                 ((coin.high24h - coin.low24h) / coin.low24h) * 100;
               return (
                 <MarketOverviewPartial
-                  key={coin.totalSupply}
+                  key={coin.key}
+                  _id={coin.key}
                   name={coin.name}
                   logo={coin.logo}
                   symbol={coin.symbol}

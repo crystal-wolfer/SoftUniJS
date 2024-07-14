@@ -38,6 +38,7 @@ export default function Market() {
             return (
               <MarketPartial
                 key={coin.totalSupply}
+                _id={coin.key}
                 name={coin.name}
                 logo={coin.logo}
                 symbol={coin.symbol}
